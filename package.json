@@ -12,7 +12,9 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "turbo run build --filter=docs^... && changeset publish"
+    "release": "turbo run build --filter=docs^... && changeset publish",
+    "lint:syncpack": "syncpack lint-semver-ranges && syncpack list-mismatches",
+    "format:syncpack": "syncpack fix-mismatches && syncpack format"
   },
   "devDependencies": {
     "@changesets/cli": "^2.22.0",
