@@ -5,15 +5,15 @@ __metadata:
   version: 6
   cacheKey: 8
 
-"@acme/core@*, @acme/core@workspace:packages/acme-core":
+"@acme/core@0.0.0, @acme/core@workspace:packages/acme-core":
   version: 0.0.0-use.local
   resolution: "@acme/core@workspace:packages/acme-core"
   dependencies:
-    "@acme/tsconfig": "*"
+    "@acme/tsconfig": 0.0.0
     "@types/react": ^18.0.9
     "@types/react-dom": ^18.0.4
     eslint: ^8.15.0
-    eslint-config-acme: "*"
+    eslint-config-acme: 0.0.0
     react: ^18.1.0
     tsup: ^5.10.1
     typescript: ^4.5.3
@@ -24,8 +24,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@acme/docs@workspace:apps/docs"
   dependencies:
-    "@acme/core": "*"
-    "@acme/tsconfig": "*"
+    "@acme/core": 0.0.0
+    "@acme/tsconfig": 0.0.0
     "@storybook/addon-actions": ^6.4.18
     "@storybook/addon-docs": ^6.4.22
     "@storybook/addon-essentials": ^6.4.18
@@ -33,7 +33,7 @@ __metadata:
     "@storybook/builder-vite": ^0.1.33
     "@storybook/react": ^6.4.18
     "@vitejs/plugin-react": ^1.3.2
-    eslint-config-acme: "*"
+    eslint-config-acme: 0.0.0
     react: ^18.0.0
     react-dom: ^18.0.0
     serve: ^13.0.2
@@ -42,7 +42,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@acme/tsconfig@*, @acme/tsconfig@workspace:packages/acme-tsconfig":
+"@acme/tsconfig@0.0.0, @acme/tsconfig@workspace:packages/acme-tsconfig":
   version: 0.0.0-use.local
   resolution: "@acme/tsconfig@workspace:packages/acme-tsconfig"
   languageName: unknown
@@ -52,11 +52,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@acme/utils@workspace:packages/acme-utils"
   dependencies:
-    "@acme/tsconfig": "*"
+    "@acme/tsconfig": 0.0.0
     "@types/react": ^18.0.9
     "@types/react-dom": ^18.0.4
     eslint: ^8.15.0
-    eslint-config-acme: "*"
+    eslint-config-acme: 0.0.0
     react: ^18.1.0
     tsup: ^5.10.1
     typescript: ^4.5.3
@@ -7301,7 +7301,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-acme@*, eslint-config-acme@workspace:packages/eslint-config-acme":
+"eslint-config-acme@0.0.0, eslint-config-acme@workspace:packages/eslint-config-acme":
   version: 0.0.0-use.local
   resolution: "eslint-config-acme@workspace:packages/eslint-config-acme"
   dependencies:
@@ -13425,7 +13425,7 @@ __metadata:
   dependencies:
     "@changesets/cli": ^2.22.0
     eslint: ^8.15.0
-    eslint-config-acme: "*"
+    eslint-config-acme: 0.0.0
     prettier: ^2.5.1
     syncpack: ^8.2.4
     turbo: latest
