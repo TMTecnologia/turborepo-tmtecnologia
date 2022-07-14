@@ -20,5 +20,6 @@
     "eslint-config-acme": "*",
     "prettier": "^2.5.1",
     "turbo": "latest"
-  }
+  },
+  "version": "0.0.0"
 }
