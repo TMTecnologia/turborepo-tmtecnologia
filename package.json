@@ -19,6 +19,7 @@
     "eslint": "^8.15.0",
     "eslint-config-acme": "*",
     "prettier": "^2.5.1",
+    "syncpack": "^8.2.4",
     "turbo": "latest"
   },
   "version": "0.0.0",
