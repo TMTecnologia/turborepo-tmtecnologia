@@ -17,7 +17,7 @@
   "devDependencies": {
     "@changesets/cli": "^2.22.0",
     "eslint": "^8.15.0",
-    "eslint-config-labfaz": "*",
+    "eslint-config-acme": "*",
     "prettier": "^2.5.1",
     "turbo": "latest"
   }
