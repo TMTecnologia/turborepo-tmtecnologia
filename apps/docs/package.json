@@ -2,12 +2,6 @@
   "name": "@acme/docs",
   "version": "0.0.0",
   "private": true,
-  "scripts": {
-    "dev": "start-storybook -p 6006",
-    "build": "build-storybook --docs",
-    "preview-storybook": "serve storybook-static",
-    "clean": "rm -rf .turbo && rm -rf node_modules"
-  },
   "dependencies": {
     "@acme/core": "0.0.0",
     "react": "^18.1.0",
@@ -26,5 +20,11 @@
     "serve": "^13.0.2",
     "typescript": "^4.5.4",
     "vite": "^2.9.9"
+  },
+  "scripts": {
+    "build": "build-storybook --docs",
+    "clean": "rm -rf .turbo && rm -rf node_modules",
+    "dev": "start-storybook -p 6006",
+    "preview-storybook": "serve storybook-static"
   }
 }

@@ -1,21 +1,6 @@
 {
+  "version": "0.0.0",
   "private": true,
-  "workspaces": [
-    "packages/*",
-    "apps/*"
-  ],
-  "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev --no-cache --parallel --continue",
-    "lint": "turbo run lint",
-    "clean": "turbo run clean && rm -rf node_modules",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "changeset": "changeset",
-    "version-packages": "changeset version",
-    "release": "turbo run build --filter=docs^... && changeset publish",
-    "lint:syncpack": "syncpack lint-semver-ranges && syncpack list-mismatches",
-    "format:syncpack": "syncpack fix-mismatches && syncpack format"
-  },
   "devDependencies": {
     "@changesets/cli": "^2.22.0",
     "eslint": "^8.15.0",
@@ -24,8 +9,19 @@
     "syncpack": "^8.2.4",
     "turbo": "latest"
   },
-  "version": "0.0.0",
   "packageManager": "yarn@3.2.1",
+  "scripts": {
+    "build": "turbo run build",
+    "changeset": "changeset",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "dev": "turbo run dev --no-cache --parallel --continue",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "format:syncpack": "syncpack fix-mismatches && syncpack format",
+    "lint": "turbo run lint",
+    "lint:syncpack": "syncpack lint-semver-ranges && syncpack list-mismatches",
+    "release": "turbo run build --filter=docs^... && changeset publish",
+    "version-packages": "changeset version"
+  },
   "syncpack": {
     "semverGroups": [
       {
@@ -48,5 +44,9 @@
       "license",
       "private"
     ]
-  }
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ]
 }
