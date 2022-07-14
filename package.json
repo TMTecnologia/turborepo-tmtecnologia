@@ -23,5 +23,28 @@
     "turbo": "latest"
   },
   "version": "0.0.0",
-  "packageManager": "yarn@3.2.1"
+  "packageManager": "yarn@3.2.1",
+  "syncpack": {
+    "semverGroups": [
+      {
+        "range": "*",
+        "dependencies": [
+          "@acme/**",
+          "eslint-config-acme"
+        ],
+        "packages": [
+          "**"
+        ]
+      }
+    ],
+    "sortFirst": [
+      "name",
+      "version",
+      "description",
+      "repository",
+      "author",
+      "license",
+      "private"
+    ]
+  }
 }
