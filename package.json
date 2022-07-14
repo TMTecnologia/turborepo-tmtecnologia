@@ -17,10 +17,14 @@
     "clean": "turbo run clean && rm -rf node_modules",
     "dev": "turbo run dev --no-cache --parallel --continue",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "format:syncpack": "syncpack fix-mismatches && syncpack format",
     "lint": "turbo run lint",
-    "lint:syncpack": "syncpack lint-semver-ranges && syncpack list-mismatches",
     "release": "turbo run build --filter=docs^... && changeset publish",
+    "syncpack:fix": "run-s syncpack:fix:\\*",
+    "syncpack:fix:format": "syncpack format",
+    "syncpack:fix:mismatches": "syncpack fix-mismatches",
+    "syncpack:lint": "run-s syncpack:lint:\\*",
+    "syncpack:lint:mismatches": "syncpack list-mismatches",
+    "syncpack:lint:semver-ranges": "syncpack lint-semver-ranges",
     "version-packages": "changeset version"
   },
   "syncpack": {
