@@ -3,10 +3,17 @@ module.exports = {
   parserOptions: {
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint', 'simple-import-sort', 'import', 'prettier'],
+  plugins: [
+    '@typescript-eslint',
+    'simple-import-sort',
+    'import',
+    'prettier',
+    'abcsize',
+  ],
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:abcsize/recommended',
     'next',
     'prettier',
   ],
