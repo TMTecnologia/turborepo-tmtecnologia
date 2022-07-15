@@ -14,6 +14,14 @@ if (app.modified && !tests.modified) {
   warn('You have app changes without tests.');
 }
 
+// Warns if there are changes to package.json.
+const packageChanged = danger.git.modified_files.includes('package.json');
+if (packageChanged) {
+  const title = ':lock: package.json';
+  const idea = 'Changes were made to package.json. ';
+  warn(`${title} - <i>${idea}</i>`);
+}
+
 if (danger.github?.pr) {
   // Provides advice if a summary section is missing, or body is too short
   const includesSummary =
@@ -29,15 +37,6 @@ if (danger.github?.pr) {
       'This is a good place to explain the motivation for making this change.';
     message(`${title} - <i>${idea}</i>`);
   }
-
-  // Warns if there are changes to package.json.
-  // const includes = require("lodash.includes");
-  // const packageChanged = includes(danger.git.modified_files, "package.json");
-  // if (packageChanged) {
-  //   const title = ":lock: package.json";
-  //   const idea = "Changes were made to package.json. ";
-  //   warn(`${title} - <i>${idea}</i>`);
-  // }
 
   // Provides advice if a test plan is missing.
   const includesTestPlan =
