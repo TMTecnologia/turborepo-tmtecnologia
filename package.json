@@ -3,6 +3,8 @@
   "private": true,
   "devDependencies": {
     "@changesets/cli": "^2.22.0",
+    "commitlint": "^17.0.3",
+    "commitlint-config-gitmoji": "^2.2.5",
     "eslint": "^8.15.0",
     "eslint-config-acme": "0.0.0",
     "husky": "^8.0.0",
