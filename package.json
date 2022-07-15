@@ -4,6 +4,9 @@
   "config": {
     "commitizen": {
       "path": "commitizen-emoji"
+    },
+    "commitizenEmoji": {
+      "symbol": true
     }
   },
   "devDependencies": {
