@@ -22,6 +22,14 @@ if (packageChanged) {
   warn(`${title} - <i>${idea}</i>`);
 }
 
+// Warns if there are changes to lockfile
+const lockChanged = danger.git.modified_files.includes('yarn.lock');
+if (lockChanged) {
+  const title = ':lock: yarn.lock';
+  const idea = 'Dependency changes were made.';
+  warn(`${title} - <i>${idea}</i>`);
+}
+
 if (danger.github?.pr) {
   // Provides advice if a summary section is missing, or body is too short
   const includesSummary =
