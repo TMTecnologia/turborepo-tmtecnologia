@@ -8,8 +8,5 @@
     "node16.json",
     "react-library.json"
   ],
-  "main": "index.js",
-  "publishConfig": {
-    "access": "public"
-  }
+  "main": "index.js"
 }

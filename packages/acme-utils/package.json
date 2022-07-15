@@ -18,9 +18,6 @@
   ],
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
     "build": "tsup src/index.tsx --format esm,cjs --dts --external react",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
