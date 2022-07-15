@@ -3,6 +3,8 @@
   "private": true,
   "devDependencies": {
     "@changesets/cli": "^2.22.0",
+    "commitizen": "^4.2.4",
+    "commitizen-emoji": "^1.0.5",
     "commitlint": "^17.0.3",
     "commitlint-config-gitmoji": "^2.2.5",
     "eslint": "^8.15.0",
