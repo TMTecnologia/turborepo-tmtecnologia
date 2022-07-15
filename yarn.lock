@@ -7364,6 +7364,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.30.6
     eslint-config-next: ^12.0.8
     eslint-config-prettier: ^8.3.0
+    eslint-plugin-abcsize: ^0.0.3
     eslint-plugin-import: ^2.26.0
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-react: 7.29.4
@@ -7438,6 +7439,13 @@ __metadata:
     debug: ^3.2.7
     find-up: ^2.1.0
   checksum: 77048263f309167a1e6a1e1b896bfb5ddd1d3859b2e2abbd9c32c432aee13d610d46e6820b1ca81b37fba437cf423a404bc6649be64ace9148a3062d1886a678
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-abcsize@npm:^0.0.3":
+  version: 0.0.3
+  resolution: "eslint-plugin-abcsize@npm:0.0.3"
+  checksum: 8e649b1619d186aa54708a2a21011169c5aef96b161b2b35230be063b4566dc797cda7266f4b2ab8220aee19bd13e42e1e4c51378dc5979397d359646d8f97e8
   languageName: node
   linkType: hard
 
