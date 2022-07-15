@@ -1,6 +1,11 @@
 {
   "version": "0.0.0",
   "private": true,
+  "config": {
+    "commitizen": {
+      "path": "commitizen-emoji"
+    }
+  },
   "devDependencies": {
     "@changesets/cli": "^2.22.0",
     "commitizen": "^4.2.4",
