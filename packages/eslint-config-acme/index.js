@@ -1,46 +1,41 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    sourceType: 'module'
+    sourceType: 'module',
   },
-  plugins: [
-    '@typescript-eslint',
-    'simple-import-sort',
-    'import',
-    'prettier'
-  ],
+  plugins: ['@typescript-eslint', 'simple-import-sort', 'import', 'prettier'],
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
-    "next",
-    "prettier"
+    'next',
+    'prettier',
   ],
   rules: {
     'prettier/prettier': ['error'],
-    "@next/next/no-html-link-for-pages": "off",
-    "react/jsx-key": "off",
-    "simple-import-sort/imports": [
-      "error",
+    '@next/next/no-html-link-for-pages': 'off',
+    'react/jsx-key': 'off',
+    'simple-import-sort/imports': [
+      'error',
       {
-        "groups": [
+        groups: [
           // Packages `react` related packages come first.
-          ["^react", "^@?\\w"],
+          ['^react', '^@?\\w'],
           // Internal packages.
-          ["^(@|components)(/.*|$)"],
+          ['^(@|components)(/.*|$)'],
           // Side effect imports.
-          ["^\\u0000"],
+          ['^\\u0000'],
           // Parent imports. Put `..` last.
-          ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+          ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
           // Other relative imports. Put same-folder imports and `.` last.
-          ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+          ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
           // Style imports.
-          ["^.+\\.?(css)$"]
-        ]
-      }
+          ['^.+\\.?(css)$'],
+        ],
+      },
     ],
-    "simple-import-sort/exports": "error",
-    "import/first": "error",
-    "import/newline-after-import": "error",
-    "import/no-duplicates": "error"
+    'simple-import-sort/exports': 'error',
+    'import/first': 'error',
+    'import/newline-after-import': 'error',
+    'import/no-duplicates': 'error',
   },
 };
