@@ -18,6 +18,7 @@ module.exports = {
     'prettier',
   ],
   rules: {
+    complexity: ['error'],
     'prettier/prettier': ['error'],
     '@next/next/no-html-link-for-pages': 'off',
     'react/jsx-key': 'off',
