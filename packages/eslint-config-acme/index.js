@@ -6,7 +6,8 @@ module.exports = {
   plugins: [
     '@typescript-eslint',
     'simple-import-sort',
-    'import'
+    'import',
+    'prettier'
   ],
   extends: [
     'eslint:recommended',
@@ -15,6 +16,7 @@ module.exports = {
     "prettier"
   ],
   rules: {
+    'prettier/prettier': ['error'],
     "@next/next/no-html-link-for-pages": "off",
     "react/jsx-key": "off",
     "simple-import-sort/imports": [
