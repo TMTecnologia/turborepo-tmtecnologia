@@ -1,44 +1,46 @@
 # Turborepo Design System Starter
 
-This guide explains how to use a React design system starter powered by:
+Yarn v3 starter monorepo, featuring:
 
 - 🏎 [Turborepo](https://turborepo.org) — High-performance build system for Monorepos
 - 🚀 [React](https://reactjs.org/) — JavaScript library for user interfaces
 - 🛠 [Tsup](https://github.com/egoist/tsup) — TypeScript bundler powered by esbuild
 - 📖 [Storybook](https://storybook.js.org/) — UI component environment powered by Vite
+- 🧑‍💻 [tRPC](https://trpc.io/) - End-to-end typesafe APIs powered by React Query
+- 🗃️ [Prisma ORM](https://prisma.io/) - typesafe client with painless migrations 
+- ✅ [Cucumber](https://cucumber.io/) + [Playwrite](https://playwright.dev/) = BDD e2e testing
 
 As well as a few others tools preconfigured:
 
 - [TypeScript](https://www.typescriptlang.org/) for static type checking
 - [ESLint](https://eslint.org/) for code linting
 - [Prettier](https://prettier.io) for code formatting
+- [Commitlint](https://commitlint.js.org/) for linting gitmoji commits messages
+- [Commitzen](https://commitizen-tools.github.io/commitizen/) for guiding contributors in writing gitmoji commits
 - [Changesets](https://github.com/changesets/changesets) for managing versioning and changelogs
-- [GitHub Actions](https://github.com/changesets/action) for fully automated package publishing
+- [Syncpack](https://github.com/JamieMason/syncpack#readme) for ensuring monorepo dependency versions consistency
+- [DangerJS](https://danger.systems/js/) for common review chores automation
+- [Husky](https://typicode.github.io/husky/#/) for git hooks, e.g linting staged files with [lint-staged](https://github.com/okonet/lint-staged#readme)
+- [GitHub Actions](https://github.com/features/actions) for automated deploy, lint, test and publishing
 
 ## Getting Started
 
-Clone the design system example locally or [from GitHub](https://github.com/vercel/turborepo/tree/main/examples/design-system):
+Clone the design system example locally or [from GitHub](https://github.com/TMTecnologia/turborepo-tmtecnologia):
 
 ```bash
-npx degit vercel/turborepo/examples/design-system design-system
-cd design-system
+git clone https://github.com/TMTecnologia/turborepo-tmtecnologia.git
+cd turborepo-tmtecnologia
 yarn install
-git init . && git add . && git commit -m "Init"
+yarn dev
 ```
 
 ### Useful Commands
 
-- `yarn build` - Build all packages including the Storybook site
-- `yarn dev` - Run all packages locally and preview with Storybook
+- `yarn build` - Build all packages and apps
+- `yarn dev` - Run all apps locally
 - `yarn lint` - Lint all packages
 - `yarn changeset` - Generate a changeset
 - `yarn clean` - Clean up all `node_modules` and `dist` folders (runs each package's clean script)
-
-## Turborepo
-
-[Turborepo](https://turborepo.org) is a high-performance build system for JavaScript and TypeScript codebases. It was designed after the workflows used by massive software engineering organizations to ship code at scale. Turborepo abstracts the complex configuration needed for monorepos and provides fast, incremental builds with zero-configuration remote caching.
-
-Using Turborepo simplifes managing your design system monorepo, as you can have a single lint, build, test, and release process for all packages. [Learn more](https://vercel.com/blog/monorepos-are-changing-how-teams-build-software) about how monorepos improve your development workflow.
 
 ## Apps & Packages
 
@@ -48,116 +50,11 @@ This Turborepo includes the following packages and applications:
 - `packages/@acme/core`: Core React components
 - `packages/@acme/utils`: Shared React utilities
 - `packages/@acme/tsconfig`: Shared `tsconfig.json`s used throughout the Turborepo
-- `packages/eslint-preset-acme`: ESLint preset
+- `packages/eslint-config-acme`: ESLint shared config
 
-Each package and app is 100% [TypeScript](https://www.typescriptlang.org/). Yarn Workspaces enables us to "hoist" dependencies that are shared between packages to the root `package.json`. This means smaller `node_modules` folders and a better local dev experience. To install a dependency for the entire monorepo, use the `-W` workspaces flag with `yarn add`.
-
-This example sets up your `.gitignore` to exclude all generated files, other folders like `node_modules` used to store your dependencies.
-
-### Compilation
-
-To make the core library code work across all browsers, we need to compile the raw TypeScript and React code to plain JavaScript. We can accomplish this with `tsup`, which uses `esbuild` to greatly improve performance.
-
-Running `yarn build` from the root of the Turborepo will run the `build` command defined in each package's `package.json` file. Turborepo runs each `build` in parallel and caches & hashes the output to speed up future builds.
-
-For `acme-core`, the `build` command is the following:
-
-```bash
-tsup src/index.tsx --format esm,cjs --dts --external react
-```
-
-`tsup` compiles `src/index.tsx`, which exports all of the components in the design system, into both ES Modules and CommonJS formats as well as their TypeScript types. The `package.json` for `acme-core` then instructs the consumer to select the correct format:
-
-```json:acme-core/package.json
-{
-  "name": "@acme/core",
-  "version": "0.0.0",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "sideEffects": false,
-}
-```
-
-Run `yarn build` to confirm compilation is working correctly. You should see a folder `acme-core/dist` which contains the compiled output.
-
-```bash
-acme-core
-└── dist
-    ├── index.d.ts  <-- Types
-    ├── index.js    <-- CommonJS version
-    └── index.mjs   <-- ES Modules version
-```
-
-## Components
-
-Each file inside of `acme-core/src` is a component inside our design system. For example:
-
-```tsx:acme-core/src/Button.tsx
-import * as React from 'react';
-
-export interface ButtonProps {
-  children: React.ReactNode;
-}
-
-export function Button(props: ButtonProps) {
-  return <button>{props.children}</button>;
-}
-
-Button.displayName = 'Button';
-```
-
-When adding a new file, ensure the component is also exported from the entry `index.tsx` file:
-
-```tsx:acme-core/src/index.tsx
-import * as React from "react";
-export { Button, type ButtonProps } from "./Button";
-// Add new component exports here
-```
-
-## Storybook
-
-Storybook provides us with an interactive UI playground for our components. This allows us to preview our components in the browser and instantly see changes when developing locally. This example preconfigures Storybook to:
-
-- Use Vite to bundle stories instantly (in milliseconds)
-- Automatically find any stories inside the `stories/` folder
-- Support using module path aliases like `@acme-core` for imports
-- Write MDX for component documentation pages
-
-For example, here's the included Story for our `Button` component:
-
-```js:apps/docs/stories/button.stories.mdx
-import { Button } from '@acme-core/src';
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-
-<Meta title="Components/Button" component={Button} />
-
-# Button
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget consectetur tempor, nisl nunc egestas nisi, euismod aliquam nisl nunc euismod.
-
-## Props
-
-<Props of={Box} />
-
-## Examples
-
-<Preview>
-  <Story name="Default">
-    <Button>Hello</Button>
-  </Story>
-</Preview>
-```
-
-This example includes a few helpful Storybook scripts:
-
-- `yarn dev`: Starts Storybook in dev mode with hot reloading at `localhost:6006`
-- `yarn build`: Builds the Storybook UI and generates the static HTML files
-- `yarn preview-storybook`: Starts a local server to view the generated Storybook UI
+Each package and app is 100% [TypeScript](https://www.typescriptlang.org/). Yarn Workspaces enables us to "hoist" dependencies that are shared between packages to the root `package.json`. This means smaller `node_modules` folders and a better local dev experience.
 
 ## Versioning & Publishing Packages
-
-This example uses [Changesets](https://github.com/changesets/changesets) to manage versions, create changelogs, and publish to npm. It's preconfigured so you can start publishing packages immediatley.
 
 You'll need to create an `NPM_TOKEN` and `GITHUB_TOKEN` and add it to your GitHub repository settings to enable access to npm. It's also worth installing the [Changesets bot](https://github.com/apps/changeset-bot) on your repository.
 
@@ -186,10 +83,10 @@ Turborepo runs the `build` script for all publishable packages (excluding docs) 
 - Search and replace `acme` with your desired scope
 - Re-run `yarn install`
 
-To publish packages to a private npm organization scope, **remove** the following from each of the `package.json`'s
+To publish packages to a public npm organization scope, **add** the following to each of the `package.json`'s
 
 ```diff
-- "publishConfig": {
--  "access": "public"
-- },
++ "publishConfig": {
++  "access": "public"
++ },
 ```
