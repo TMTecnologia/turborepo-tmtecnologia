@@ -20,6 +20,8 @@ module.exports = {
   ],
   rules: {
     complexity: ['error'],
+    'no-console': 'error',
+    '@typescript-eslint/no-var-requires': 'error',
     'prettier/prettier': ['error'],
     '@next/next/no-html-link-for-pages': 'off',
     'react/jsx-key': 'off',
