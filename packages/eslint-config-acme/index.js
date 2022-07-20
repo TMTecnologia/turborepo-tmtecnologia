@@ -51,4 +51,15 @@ module.exports = {
     'import/newline-after-import': 'error',
     'import/no-duplicates': 'error',
   },
+  overrides: [
+    {
+      files: ['*.md'],
+      parser: 'eslint-plugin-markdownlint/parser',
+      extends: ['plugin:markdownlint/recommended'],
+      rules: {
+        'markdownlint/md013': 'off',
+        'prettier/prettier': 'off',
+      },
+    },
+  ],
 };
