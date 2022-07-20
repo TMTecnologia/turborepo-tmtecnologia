@@ -1,0 +1,5 @@
+{
+  "extends": "@acme/tsconfig/next.json",
+  "include": ["."],
+  "exclude": ["dist", "build", "node_modules"]
+}

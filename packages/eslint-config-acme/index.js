@@ -16,7 +16,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:@cspell/recommended',
     'plugin:abcsize/recommended',
-    'next',
+    'next/core-web-vitals',
     'prettier',
   ],
   rules: {
