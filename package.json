@@ -9,6 +9,14 @@
       "symbol": true
     }
   },
+  "cspell": {
+    "words": [
+      "abcsize",
+      "documentarians",
+      "gitmoji",
+      "slugified"
+    ]
+  },
   "devDependencies": {
     "@changesets/cli": "^2.22.0",
     "commitizen": "^4.2.4",
@@ -35,9 +43,9 @@
     "danger:local": "danger local --dangerfile dangerfile.ts --base main",
     "danger:remote": "danger local --dangerfile dangerfile.ts --base origin/main",
     "dev": "turbo run dev --no-cache --parallel --continue",
+    "format": "run-p format:\\*",
     "format:markdown": "eslint *.md --quiet --fix",
     "format:turbo": "turbo run format",
-    "format": "run-p format:\\*",
     "lint": "turbo run lint",
     "postinstall": "husky install",
     "postpublish": "pinst --enable",
@@ -77,13 +85,5 @@
   "workspaces": [
     "packages/*",
     "apps/*"
-  ],
-  "cspell": {
-    "words": [
-      "abcsize",
-      "documentarians",
-      "gitmoji",
-      "slugified"
-    ]
-  }
+  ]
 }
