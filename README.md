@@ -1,4 +1,4 @@
-# Turborepo Design System Starter
+# Turborepo TMTecnologia Starter
 
 Yarn v3 starter monorepo, featuring:
 
@@ -7,7 +7,7 @@ Yarn v3 starter monorepo, featuring:
 - 🛠 [Tsup](https://github.com/egoist/tsup) — TypeScript bundler powered by esbuild
 - 📖 [Storybook](https://storybook.js.org/) — UI component environment powered by Vite
 - 🧑‍💻 [tRPC](https://trpc.io/) - End-to-end typesafe APIs powered by React Query
-- 🗃️ [Prisma ORM](https://prisma.io/) - typesafe client with painless migrations 
+- 🗃️ [Prisma ORM](https://prisma.io/) - typesafe client with painless migrations
 - ✅ [Cucumber](https://cucumber.io/) + [Playwrite](https://playwright.dev/) = BDD e2e testing
 
 As well as a few others tools preconfigured:
