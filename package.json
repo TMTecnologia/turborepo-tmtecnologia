@@ -75,5 +75,13 @@
   "workspaces": [
     "packages/*",
     "apps/*"
-  ]
+  ],
+  "cspell": {
+    "words": [
+      "abcsize",
+      "documentarians",
+      "gitmoji",
+      "slugified"
+    ]
+  }
 }

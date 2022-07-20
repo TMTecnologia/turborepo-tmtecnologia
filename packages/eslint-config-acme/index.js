@@ -13,6 +13,7 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:@cspell/recommended',
     'plugin:abcsize/recommended',
     'next',
     'prettier',
