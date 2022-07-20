@@ -5140,6 +5140,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"adverb-where@npm:^0.2.2":
+  version: 0.2.5
+  resolution: "adverb-where@npm:0.2.5"
+  checksum: 8ad0f125717a4b86004c17a945ff0c9cac03bda00f0adea0d881638a421c7c937e92a65045cfaf0cbb7be2a2c1cb4c17e931bf67391261ca6aa35d0bf46e48b4
+  languageName: node
+  linkType: hard
+
 "agent-base@npm:4, agent-base@npm:^4.3.0":
   version: 4.3.0
   resolution: "agent-base@npm:4.3.0"
@@ -8185,6 +8192,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"e-prime@npm:^0.10.4":
+  version: 0.10.4
+  resolution: "e-prime@npm:0.10.4"
+  checksum: 4932a58f481c266e1e4d85a9d2c2b7ff797640429c71acda264379074a347bdc5e26497d32f96908c7b7760834c9e50e009ea97ab6a796dfa0248f38a6dc9c18
+  languageName: node
+  linkType: hard
+
 "eastasianwidth@npm:^0.2.0":
   version: 0.2.0
   resolution: "eastasianwidth@npm:0.2.0"
@@ -8768,6 +8782,7 @@ __metadata:
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-react: 7.29.4
     eslint-plugin-simple-import-sort: ^7.0.0
+    eslint-plugin-write-good-comments: ^0.1.4
   languageName: unknown
   linkType: soft
 
@@ -8972,6 +8987,16 @@ __metadata:
   peerDependencies:
     eslint: ">=5.0.0"
   checksum: 6aacb7179c213cd2081950630368d1f3b1dcb4f5674d8b989fe7839e7b317ee521d74761676e8b1a7cab49f20405dbcc9aac05358ae804e6bcba6cbf1daccb3d
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-write-good-comments@npm:^0.1.4":
+  version: 0.1.4
+  resolution: "eslint-plugin-write-good-comments@npm:0.1.4"
+  dependencies:
+    requireindex: ~1.1.0
+    write-good: ^1.0.8
+  checksum: 73e6e307356816ed13b4387b7c87dea505e95038454694a9332a9213305c1b03b39054ebf4458d7ff873d0c2fec83955ed4d09166e76944c07fd66cbbe645729
   languageName: node
   linkType: hard
 
@@ -13621,6 +13646,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"no-cliches@npm:^0.3.0":
+  version: 0.3.4
+  resolution: "no-cliches@npm:0.3.4"
+  peerDependencies:
+    eslint-plugin-import: ^2.22.1
+    eslint-plugin-jsx-a11y: ^6.4.1
+    eslint-plugin-react: ^7.21.5
+    eslint-plugin-react-hooks: ^4.0.0
+  checksum: 7abc57c9bc987453d4b8b606097b8ddffefec573782fea1c921784b6b51fdb247c9599bb73b38c7e1274f677aa517f2758155acf0585e5c58b77bedfe7e01861
+  languageName: node
+  linkType: hard
+
 "node-cleanup@npm:^2.1.2":
   version: 2.1.2
   resolution: "node-cleanup@npm:2.1.2"
@@ -14451,6 +14488,13 @@ __metadata:
   version: 0.1.1
   resolution: "pascalcase@npm:0.1.1"
   checksum: f83681c3c8ff75fa473a2bb2b113289952f802ff895d435edd717e7cb898b0408cbdb247117a938edcbc5d141020909846cc2b92c47213d764e2a94d2ad2b925
+  languageName: node
+  linkType: hard
+
+"passive-voice@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "passive-voice@npm:0.1.0"
+  checksum: 4f5d1810e609342f97ece91801388e9751f6185094e4c598a902b895fae303a82c8d14472e8a57ba9161c1cc2c275189ad59c83138c33bcfaf0c7562c63309a7
   languageName: node
   linkType: hard
 
@@ -15865,6 +15909,13 @@ __metadata:
   version: 2.0.0
   resolution: "require-main-filename@npm:2.0.0"
   checksum: e9e294695fea08b076457e9ddff854e81bffbe248ed34c1eec348b7abbd22a0d02e8d75506559e2265e96978f3c4720bd77a6dad84755de8162b357eb6c778c7
+  languageName: node
+  linkType: hard
+
+"requireindex@npm:~1.1.0":
+  version: 1.1.0
+  resolution: "requireindex@npm:1.1.0"
+  checksum: 397057d97d7f753a3851abf0d6db94c295bd8254536f71f622b896ba08ea8c0d3e3771c8b009a557e6ce602f4245c0588836cdf59c4ce588fff721a7b855d323
   languageName: node
   linkType: hard
 
@@ -17636,6 +17687,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"too-wordy@npm:^0.3.1":
+  version: 0.3.4
+  resolution: "too-wordy@npm:0.3.4"
+  checksum: c7e4b5cdaf445a4d7ea8d07e4f293e10507b6e70252b6a0a17d0e28b676b0d5c193913f6313ab293e661e72655a27821aa64a3b479d044a0a9bb3e69e0d0e85b
+  languageName: node
+  linkType: hard
+
 "toposort@npm:^2.0.2":
   version: 2.0.2
   resolution: "toposort@npm:2.0.2"
@@ -18695,6 +18753,13 @@ turbo@latest:
   languageName: node
   linkType: hard
 
+"weasel-words@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "weasel-words@npm:0.1.1"
+  checksum: a7693308cf29af979da3b9d4803b535c8ea0fa78e0fa3baedae44fa353b5c93779df76189d54829743fd6aae029e46cbb06e30dc4baa8b36032b0573157f8200
+  languageName: node
+  linkType: hard
+
 "web-namespaces@npm:^1.0.0":
   version: 1.1.4
   resolution: "web-namespaces@npm:1.1.4"
@@ -19034,6 +19099,24 @@ turbo@latest:
     signal-exit: ^3.0.2
     typedarray-to-buffer: ^3.1.5
   checksum: c55b24617cc61c3a4379f425fc62a386cc51916a9b9d993f39734d005a09d5a4bb748bc251f1304e7abd71d0a26d339996c275955f527a131b1dcded67878280
+  languageName: node
+  linkType: hard
+
+"write-good@npm:^1.0.8":
+  version: 1.0.8
+  resolution: "write-good@npm:1.0.8"
+  dependencies:
+    adverb-where: ^0.2.2
+    commander: ^2.19.0
+    e-prime: ^0.10.4
+    no-cliches: ^0.3.0
+    passive-voice: ^0.1.0
+    too-wordy: ^0.3.1
+    weasel-words: ^0.1.1
+  bin:
+    write-good: bin/write-good.js
+    writegood: bin/write-good.js
+  checksum: 045f1d1b50f73d15c6664350ecacaa4bf74bab681376747b42c14ccaec06a667db89874ec0c1ff31a46e01f52051ed76518c2b920d114925f84aefcb91708e92
   languageName: node
   linkType: hard
 
