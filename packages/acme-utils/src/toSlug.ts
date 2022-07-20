@@ -1,7 +1,7 @@
 /**
  * Return a slugified copy of a string.
  *
- * @param {string} str The string to be slugified
+ * @param {string} str The original string.
  * @return {string} The slugified string.
  */
 export function toSlug(str: string): string {

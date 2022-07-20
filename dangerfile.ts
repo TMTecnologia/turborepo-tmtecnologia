@@ -91,8 +91,8 @@ if (danger.github?.pr) {
     message(`${title} - <i>${idea}</i>`);
   }
 
-  // Warns if the PR is opened against stable, as commits need to be cherry picked and tagged by a release maintainer.
-  // Fails if the PR is opened against anything other than `main` or `-stable`.
+  // Warns if the PR targets stable, as commits need to be cherry picked and tagged by a release maintainer.
+  // Fails if the PR targets anything other than `main` or `-stable`.
   const isMergeRefMain = danger.github.pr.base.ref === 'main';
   const isMergeRefStable = danger.github.pr.base.ref.indexOf('-stable') !== -1;
   if (!isMergeRefMain && !isMergeRefStable) {
@@ -102,7 +102,7 @@ if (danger.github?.pr) {
     fail(`${title} - <i>${idea}</i>`);
   }
 
-  // If the PR is opened against stable should add `Pick Request` label
+  // If the PR targets stable, should add `Pick Request` label
   // if (isMergeRefStable) {
   //   const { owner, repo, number: issueNumber } = danger.github.thisPR;
 
