@@ -9,6 +9,7 @@ module.exports = {
     'import',
     'prettier',
     'abcsize',
+    'write-good-comments',
   ],
   extends: [
     'eslint:recommended',
@@ -22,6 +23,7 @@ module.exports = {
     complexity: ['error'],
     'no-console': 'error',
     '@typescript-eslint/no-var-requires': 'error',
+    'write-good-comments/write-good-comments': 'warn',
     'prettier/prettier': ['error'],
     '@next/next/no-html-link-for-pages': 'off',
     'react/jsx-key': 'off',
