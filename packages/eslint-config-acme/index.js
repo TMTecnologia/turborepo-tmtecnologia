@@ -23,6 +23,10 @@ module.exports = {
     complexity: ['error'],
     'no-console': 'error',
     '@typescript-eslint/no-var-requires': 'error',
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+    ],
     'write-good-comments/write-good-comments': 'warn',
     'prettier/prettier': ['error'],
     '@next/next/no-html-link-for-pages': 'off',
