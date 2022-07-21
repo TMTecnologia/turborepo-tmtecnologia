@@ -1,0 +1,14 @@
+{
+  "name": "@acme/db",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "files": [
+    "index.ts"
+  ],
+  "main": "index.ts",
+  "dependencies": {
+    "@prisma/client": "^4.1.0",
+    "prisma": "^4.1.0"
+  }
+}
