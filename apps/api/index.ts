@@ -1,9 +1,12 @@
 import { appRouter, createContext } from '@acme/routers';
 import * as trpcExpress from '@trpc/server/adapters/express';
+import cors from 'cors';
 import express from 'express';
 
 async function main() {
   const app = express();
+
+  app.use(cors());
 
   app.use((req, _res, next) => {
     // request logger
