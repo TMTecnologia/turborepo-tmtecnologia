@@ -5,9 +5,14 @@
   "private": true,
   "dependencies": {
     "@acme/core": "0.0.0",
+    "@acme/routers": "0.0.0",
+    "@trpc/client": "^9.26.2",
+    "@trpc/react": "^9.26.2",
+    "@trpc/server": "^9.26.2",
     "next": "12.2.2",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-query": "3"
   },
   "devDependencies": {
     "@acme/tsconfig": "0.0.0",
