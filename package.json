@@ -14,7 +14,8 @@
       "abcsize",
       "documentarians",
       "gitmoji",
-      "slugified"
+      "slugified",
+      "trpc"
     ]
   },
   "devDependencies": {
