@@ -29,11 +29,16 @@ As well as a few others tools preconfigured:
 Clone the design system example locally or [from GitHub](https://github.com/TMTecnologia/turborepo-tmtecnologia):
 
 ```bash
-git clone https://github.com/TMTecnologia/turborepo-tmtecnologia.git
-cd turborepo-tmtecnologia
-yarn install
-cp .env.example .env # Configure your env
-yarn dev
+>>> git clone https://github.com/TMTecnologia/turborepo-tmtecnologia.git
+>>> cd turborepo-tmtecnologia
+>>> yarn install
+>>> cp .env.example .env
+# Configure your env
+>>> cp .env packages/acme-db/.env
+>>> cp .env apps/client/.env
+>>> docker-compose up -d
+>>> yarn workspace @acme/db prisma db push
+>>> yarn dev
 ```
 
 ### Useful Commands
