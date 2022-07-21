@@ -6,6 +6,7 @@ Yarn v3 starter monorepo, featuring:
 - 🚀 [React](https://reactjs.org/) — JavaScript library for user interfaces
 - 🛠 [Tsup](https://github.com/egoist/tsup) — TypeScript bundler powered by esbuild
 - 📖 [Storybook](https://storybook.js.org/) — UI component environment powered by Vite
+- 🔼 [Next.js](https://nextjs.org/) - Flexible React framework focused on web applications
 - 🧑‍💻 [tRPC](https://trpc.io/) - End-to-end typesafe APIs powered by React Query
 - 🗃️ [Prisma ORM](https://prisma.io/) - typesafe client with painless migrations
 - ✅ [Cucumber](https://cucumber.io/) + [Playwrite](https://playwright.dev/) = BDD e2e testing
@@ -31,6 +32,7 @@ Clone the design system example locally or [from GitHub](https://github.com/TMTe
 git clone https://github.com/TMTecnologia/turborepo-tmtecnologia.git
 cd turborepo-tmtecnologia
 yarn install
+cp .env.example .env # Configure your env
 yarn dev
 ```
 
@@ -39,6 +41,7 @@ yarn dev
 - `yarn build` - Build all packages and apps
 - `yarn dev` - Run all apps locally
 - `yarn lint` - Lint all packages
+- `yarn format` - Format all packages
 - `yarn changeset` - Generate a changeset
 - `yarn clean` - Clean up all `node_modules` and `dist` folders (runs each package's clean script)
 
@@ -46,8 +49,12 @@ yarn dev
 
 This Turborepo includes the following packages and applications:
 
+- `apps/api`: REST API powered by Express
+- `apps/client`: Web App starter with Next.js and trpc
 - `apps/docs`: Component documentation site with Storybook
 - `packages/@acme/core`: Core React components
+- `packages/@acme/db`: DB Client
+- `packages/@acme/routers`: tRPC routers to interact with DB
 - `packages/@acme/utils`: Shared React utilities
 - `packages/@acme/tsconfig`: Shared `tsconfig.json`s used throughout the Turborepo
 - `packages/eslint-config-acme`: ESLint shared config
