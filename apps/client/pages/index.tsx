@@ -11,7 +11,7 @@ const Home: NextPage = () => {
 
   return (
     <>
-      {hello.data?.map((user) => (
+      {hello.data.map((user) => (
         <p>{user.email}</p>
       ))}
     </>
