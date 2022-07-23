@@ -25,6 +25,7 @@ __metadata:
   resolution: "@acme/client@workspace:apps/client"
   dependencies:
     "@acme/db": 0.0.0
+    "@acme/tsconfig": 0.0.0
     "@next-auth/prisma-adapter": ^1.0.4
     "@prisma/client": ^4.1.0
     "@trpc/client": ^9.26.2

@@ -20,6 +20,7 @@
     "zod": "^3.17.9"
   },
   "devDependencies": {
+    "@acme/tsconfig": "0.0.0",
     "@types/node": "18.0.0",
     "@types/react": "18.0.15",
     "@types/react-dom": "18.0.6",
