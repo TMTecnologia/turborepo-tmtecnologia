@@ -15,7 +15,10 @@
       "documentarians",
       "gitmoji",
       "slugified",
-      "trpc"
+      "trpc",
+      "NEXTAUTH",
+      "superjson",
+      "tailwindcss"
     ]
   },
   "devDependencies": {
