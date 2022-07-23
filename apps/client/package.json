@@ -6,6 +6,8 @@
   "dependencies": {
     "@acme/core": "0.0.0",
     "@acme/db": "0.0.0",
+    "@hookform/error-message": "^2.0.0",
+    "@hookform/resolvers": "^2.9.6",
     "@next-auth/prisma-adapter": "^1.0.4",
     "@prisma/client": "^4.1.0",
     "@trpc/client": "^9.26.2",
@@ -16,6 +18,7 @@
     "next-auth": "^4.10.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.33.1",
     "react-query": "3.39.2",
     "superjson": "^1.9.1",
     "zod": "^3.17.9"
