@@ -18,7 +18,8 @@
       "trpc",
       "NEXTAUTH",
       "superjson",
-      "tailwindcss"
+      "tailwindcss",
+      "typesafe"
     ]
   },
   "devDependencies": {
