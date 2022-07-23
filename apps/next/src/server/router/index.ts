@@ -1,4 +1,3 @@
-// src/server/router/index.ts
 import superjson from 'superjson';
 
 import { authRouter } from './auth';
