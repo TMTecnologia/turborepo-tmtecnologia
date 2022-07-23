@@ -7,6 +7,8 @@ Yarn v3 starter monorepo, featuring:
 - 🛠 [Tsup](https://github.com/egoist/tsup) — TypeScript bundler powered by esbuild
 - 📖 [Storybook](https://storybook.js.org/) — UI component environment powered by Vite
 - 🔼 [Next.js](https://nextjs.org/) - Flexible React framework focused on web applications
+- 🔒️ [NextAuth.js](https://next-auth.js.org/) - Authentication for Next.js
+- 💄 [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
 - 🧑‍💻 [tRPC](https://trpc.io/) - End-to-end typesafe APIs powered by React Query
 - 🗃️ [Prisma ORM](https://prisma.io/) - typesafe client with painless migrations
 - ✅ [Cucumber](https://cucumber.io/) + [Playwrite](https://playwright.dev/) = BDD e2e testing
@@ -55,7 +57,7 @@ Clone the design system example locally or [from GitHub](https://github.com/TMTe
 This Turborepo includes the following packages and applications:
 
 - `apps/api`: REST API powered by Express
-- `apps/client`: Web App starter with Next.js and trpc
+- `apps/client`: Create T3 App starter, customized
 - `apps/docs`: Component documentation site with Storybook
 - `packages/@acme/core`: Core React components
 - `packages/@acme/db`: DB Client
