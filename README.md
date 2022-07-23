@@ -13,7 +13,7 @@ Yarn v3 starter monorepo, featuring:
 - 💎 [Zod](https://zod.dev/) - TypeScript-first schema validation with static type inference
 - 🧑‍💻 [tRPC](https://trpc.io/) - End-to-end typesafe APIs powered by React Query
 - 🗃️ [Prisma ORM](https://prisma.io/) - typesafe client with painless migrations
-- ✅ [Cucumber](https://cucumber.io/) + [Playwrite](https://playwright.dev/) = BDD e2e testing
+- 🥒 [Cucumber](https://cucumber.io/) + 🎭 [Playwrite](https://playwright.dev/) = BDD e2e testing
 
 As well as a few others tools preconfigured:
 
