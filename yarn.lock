@@ -14592,6 +14592,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "next@workspace:apps/next"
   dependencies:
+    "@acme/db": 0.0.0
     "@next-auth/prisma-adapter": ^1.0.4
     "@prisma/client": ^4.1.0
     "@trpc/client": ^9.26.2

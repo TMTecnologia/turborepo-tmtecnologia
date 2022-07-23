@@ -1,5 +1,5 @@
 // src/server/db/client.ts
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from '@acme/db';
 
 import { env } from '@root/server/env.mjs';
 
