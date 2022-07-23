@@ -4,6 +4,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "@acme/core": "0.0.0",
     "@acme/db": "0.0.0",
     "@next-auth/prisma-adapter": "^1.0.4",
     "@prisma/client": "^4.1.0",
