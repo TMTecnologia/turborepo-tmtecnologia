@@ -14604,6 +14604,7 @@ __metadata:
     "@types/react-dom": 18.0.5
     autoprefixer: ^10.4.7
     eslint: 8.18.0
+    eslint-config-acme: 0.0.0
     eslint-config-next: 12.2.1
     next: 12.2.1
     next-auth: ^4.10.2
