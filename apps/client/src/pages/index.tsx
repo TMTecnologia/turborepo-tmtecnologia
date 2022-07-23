@@ -1,8 +1,46 @@
+import { useForm } from 'react-hook-form';
+import { ErrorMessage } from '@hookform/error-message';
+import { zodResolver } from '@hookform/resolvers/zod';
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import * as z from 'zod';
 
 import { Button } from '@acme/core';
 import { trpc } from '@root/utils/trpc';
+
+const schema = z.object({
+  name: z.string().min(1, { message: 'Required' }),
+  age: z.number().min(10),
+});
+
+function Form() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(schema),
+    criteriaMode: 'all',
+  });
+
+  return (
+    /* eslint-disable-next-line no-console */
+    <form onSubmit={handleSubmit((d) => console.log(d))}>
+      <input
+        aria-invalid={errors.name ? 'true' : 'false'}
+        {...register('name')}
+      />
+      <ErrorMessage errors={errors} name="name" />
+      <input
+        type="number"
+        aria-invalid={errors.age ? 'true' : 'false'}
+        {...register('age', { valueAsNumber: true })}
+      />
+      <ErrorMessage errors={errors} name="age" />
+      <input type="submit" />
+    </form>
+  );
+}
 
 type TechnologyCardProps = {
   name: string;
@@ -52,6 +90,7 @@ const Home: NextPage = () => {
           {hello.data ? <p>{hello.data.greeting}</p> : <p>Loading..</p>}
         </div>
         <Button>@acme/core/Button</Button>
+        <Form />
       </main>
     </>
   );
