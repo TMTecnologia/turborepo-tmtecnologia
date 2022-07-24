@@ -1,0 +1,5 @@
+{
+  "compilerOptions": {},
+  "include": ["apps/**/*", "packages/**/*", "dangerfile.ts"],
+  "exclude": ["dangerfile.ts", "node_modules"]
+}
