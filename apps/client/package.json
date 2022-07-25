@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@acme/tsconfig": "0.0.0",
+    "@playwright/test": "^1.24.0",
     "@types/node": "18.0.0",
     "@types/react": "18.0.15",
     "@types/react-dom": "18.0.6",

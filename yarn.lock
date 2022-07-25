@@ -30,6 +30,7 @@ __metadata:
     "@hookform/error-message": ^2.0.0
     "@hookform/resolvers": ^2.9.6
     "@next-auth/prisma-adapter": ^1.0.4
+    "@playwright/test": ^1.24.0
     "@prisma/client": ^4.1.0
     "@trpc/client": ^9.26.2
     "@trpc/next": ^9.26.2
@@ -3149,6 +3150,18 @@ __metadata:
   version: 1.0.2
   resolution: "@panva/hkdf@npm:1.0.2"
   checksum: 75183b4d5ea816ef516dcea70985c610683579a9e2ac540c2d59b9a3ed27eedaff830a43a1c43c1683556a457c92ac66e09109ee995ab173090e4042c4c4bb03
+  languageName: node
+  linkType: hard
+
+"@playwright/test@npm:^1.24.0":
+  version: 1.24.0
+  resolution: "@playwright/test@npm:1.24.0"
+  dependencies:
+    "@types/node": "*"
+    playwright-core: 1.24.0
+  bin:
+    playwright: cli.js
+  checksum: 0e63b47627704f86d84a46059f3b0429b1c03abbdf25271fdd3cadc8cfd07d5202a60e5c66093006d01b63eac34474b3c013c0dba4e6102064a0418ddd28b7cc
   languageName: node
   linkType: hard
 
@@ -15553,6 +15566,15 @@ __metadata:
   dependencies:
     find-up: ^5.0.0
   checksum: b167bb8dac7bbf22b1d5e30ec223e6b064b84b63010c9d49384619a36734caf95ed23ad23d4f9bd975e8e8082b60a83395f43a89bb192df53a7c25a38ecb57d9
+  languageName: node
+  linkType: hard
+
+"playwright-core@npm:1.24.0":
+  version: 1.24.0
+  resolution: "playwright-core@npm:1.24.0"
+  bin:
+    playwright: cli.js
+  checksum: 3744ec66e09b007f066efa9deb75f71627e302561ddb9ab42dbcd7140dad18079690dd97030423df7f6a1c03a8c20f3aac7c2a4bf28810bafd58d51e695d8aa7
   languageName: node
   linkType: hard
 
