@@ -44,6 +44,6 @@
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start",
-    "test:e2e": "playwright test"
+    "test:e2e": "cucumber-js --require cucumber.conf.js --require tests/acceptance/stepDefinitions/**/*.js --format @cucumber/pretty-formatter"
   }
 }
