@@ -12,7 +12,7 @@ const todoInput = '.todo-input';
 const todoButton = '.todo-button';
 const todoItem = '.todo .todo-item ';
 
-Given('a user has navigated to the homepage', async function () {
+Given('um usuário tenha navegado para a página inicial', async function () {
   // navigate to the app
   await page.goto(url);
   // locate the element in the webUI
@@ -22,7 +22,7 @@ Given('a user has navigated to the homepage', async function () {
 });
 
 When(
-  'the user adds {string} to the todo list using the webUI',
+  'o usuário adiciona {string} a lista de tarefas',
   async function (item) {
     // fill the item that was input from the feature file , to the inputText field in the UI
     await page.fill(todoInput, item);
@@ -31,7 +31,7 @@ When(
   }
 );
 
-Then('card {string} should be displayed on the webUI', async function (item) {
+Then('o cartão {string} deveria ser mostrado', async function (item) {
   // get text of the item that is visible in the UI
   const text = await page.innerText(todoItem);
   // assert that its name is similar to what we provided
