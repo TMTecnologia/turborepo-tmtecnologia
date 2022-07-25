@@ -25,6 +25,8 @@
   },
   "devDependencies": {
     "@acme/tsconfig": "0.0.0",
+    "@cucumber/cucumber": "7.3.1",
+    "@cucumber/pretty-formatter": "^1.0.0",
     "@playwright/test": "^1.24.0",
     "@types/node": "18.0.0",
     "@types/react": "18.0.15",
