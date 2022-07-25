@@ -1,7 +1,7 @@
 import { danger, fail, message, warn } from 'danger';
 
 const docs = danger.git.fileMatch('**/*.md');
-const app = danger.git.fileMatch('(apps|packages)/**/*.ts');
+const app = danger.git.fileMatch('(apps|packages)/**/*.ts*');
 const tests = danger.git.fileMatch('**/(*.)+(spec|test).ts');
 
 if (docs.edited) {
@@ -11,45 +11,48 @@ if (docs.edited) {
 }
 
 if (app.modified && !tests.modified) {
-  warn('You have app changes without tests.');
+  warn(
+    "There are app changes, but not tests. That's OK as long as you're refactoring existing code"
+  );
 }
 
-// Warns if there are changes to package.json.
 const packageChanged = danger.git.modified_files.includes('package.json');
-if (packageChanged) {
-  const title = ':lock: package.json';
-  const idea = 'Changes were made to package.json. ';
+const lockfileChanged = danger.git.modified_files.includes('yarn.lock');
+if (packageChanged && !lockfileChanged) {
+  const title =
+    ':lock: Changes were made to package.json, but not to yarn.lock';
+  const idea = 'Perhaps you need to run `yarn install`?';
   warn(`${title} - <i>${idea}</i>`);
 }
 
-// Warns if there are changes to lockfile
-const lockChanged = danger.git.modified_files.includes('yarn.lock');
-if (lockChanged) {
-  const title = ':lock: yarn.lock';
-  const idea = 'Dependency changes were made.';
-  warn(`${title} - <i>${idea}</i>`);
-}
-
-if (danger.github?.pr) {
-  // Provides advice if a summary section is missing, or body is too short
-  const includesSummary =
-    danger.github.pr.body &&
-    danger.github.pr.body.toLowerCase().includes('## summary');
+function isDescriptionCorrectlyFormatted() {
+  // Provides advice if body is too short or non-existent
   if (!danger.github.pr.body || danger.github.pr.body.length < 50) {
-    fail(':grey_question: This pull request needs a description.');
-  } else if (!includesSummary) {
+    fail(':grey_question: Missing PR description.');
+    return;
+  }
+
+  // Provides advice if a summary section is missing
+  const includesSummary = danger.github.pr.body
+    .toLowerCase()
+    .includes('## summary');
+
+  if (!includesSummary) {
     const title = ':clipboard: Missing Summary';
     const idea =
       'Can you add a Summary? ' +
       'To do so, add a "## Summary" section to your PR description. ' +
-      'This is a good place to explain the motivation for making this change.';
+      'This is a good place to explain the motivation for making this change.' +
+      'Also a good place to link to related issues resolved by this change, ' +
+      'read more @ [GitHub docs](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)';
     message(`${title} - <i>${idea}</i>`);
   }
 
   // Provides advice if a test plan is missing.
-  const includesTestPlan =
-    danger.github.pr.body &&
-    danger.github.pr.body.toLowerCase().includes('## test plan');
+  const includesTestPlan = danger.github.pr.body
+    .toLowerCase()
+    .includes('## test plan');
+
   if (!includesTestPlan) {
     const title = ':clipboard: Missing Test Plan';
     const idea =
@@ -58,38 +61,24 @@ if (danger.github?.pr) {
       'A Test Plan lets us know how these changes were tested.';
     message(`${title} - <i>${idea}</i>`);
   }
+}
 
-  // Regex looks for given categories, types, a file/framework/component, and a message - broken into 4 capture groups
-  const changelogRegex =
-    /\[\s?(ANDROID|GENERAL|IOS|JS|JAVASCRIPT|INTERNAL)\s?\]\s?\[\s?(ADDED|CHANGED|DEPRECATED|REMOVED|FIXED|SECURITY)\s?\]\s*?-?\s*?(.*)/gi;
-  const internalChangelogRegex = /\[\s?(INTERNAL)\s?\].*/gi;
-  const includesChangelog =
-    danger.github.pr.body &&
-    (danger.github.pr.body.toLowerCase().includes('## changelog') ||
-      danger.github.pr.body.toLowerCase().includes('release notes') ||
-      danger.github.pr.body.toLowerCase().includes('changelog:'));
-  const correctlyFormattedChangelog = changelogRegex.test(
-    danger.github.pr.body
-  );
-  const containsInternalChangelog = internalChangelogRegex.test(
-    danger.github.pr.body
-  );
+if (danger.github?.pr) {
+  const bigPRThreshold = 600;
 
-  // Provides advice if a changelog is missing
-  const changelogInstructions =
-    'A changelog entry has the following format: `[CATEGORY] [TYPE] - Message`.\n\n<details>CATEGORY may be:\n\n- General\n- iOS\n- Android\n- JavaScript\n- Internal (for changes that do not need to be called out in the release notes)\n\nTYPE may be:\n\n- Added, for new features.\n- Changed, for changes in existing functionality.\n- Deprecated, for soon-to-be removed features.\n- Removed, for now removed features.\n- Fixed, for any bug fixes.\n- Security, in case of vulnerabilities.\n\nMESSAGE may answer "what and why" on a feature level.   Use this to briefly tell React Native users about notable changes.</details>';
-  if (!includesChangelog) {
-    const title = ':clipboard: Missing Changelog';
+  if (
+    danger.github.pr.additions + danger.github.pr.deletions >
+    bigPRThreshold
+  ) {
+    const title = ':exclamation: Big PR';
     const idea =
-      'Can you add a Changelog? ' +
-      'To do so, add a "## Changelog" section to your PR description. ' +
-      changelogInstructions;
-    message(`${title} - <i>${idea}</i>`);
-  } else if (!correctlyFormattedChangelog && !containsInternalChangelog) {
-    const title = ':clipboard: Verify Changelog Format';
-    const idea = changelogInstructions;
-    message(`${title} - <i>${idea}</i>`);
+      'Pull Request size seems relatively large. ' +
+      'If Pull Request contains multiple changes, ' +
+      'split each into separate PR will help faster, easier review.';
+    warn(`${title} - <i>${idea}</i>`);
   }
+
+  isDescriptionCorrectlyFormatted();
 
   // Warns if the PR targets stable, as commits need to be cherry picked and tagged by a release maintainer.
   // Fails if the PR targets anything other than `main` or `-stable`.
@@ -101,19 +90,4 @@ if (danger.github?.pr) {
       'The base branch for this PR is something other than `main` or a `-stable` branch';
     fail(`${title} - <i>${idea}</i>`);
   }
-
-  // If the PR targets stable, should add `Pick Request` label
-  // if (isMergeRefStable) {
-  //   const { owner, repo, number: issueNumber } = danger.github.thisPR;
-
-  //   danger.github.api.request(
-  //     "POST /repos/{owner}/{repo}/issues/{issueNumber}/labels",
-  //     {
-  //       owner,
-  //       repo,
-  //       issueNumber,
-  //       labels: ["Pick Request"],
-  //     }
-  //   );
-  // }
 }
