@@ -2,10 +2,8 @@ import { Given, Then } from '@cucumber/cucumber';
 // import expect for assertion
 import { expect } from '@playwright/test';
 
+import { config } from '../support/config';
 import { ICustomWorld } from '../support/custom-world';
-
-//launch url
-const url = 'http://localhost:3000';
 
 //define selectors
 const homepageElement = 'h1';
@@ -16,7 +14,7 @@ Given(
     const page = this.page!; // eslint-disable-line @typescript-eslint/no-non-null-assertion
 
     // navigate to the app
-    await page.goto(url);
+    await page.goto(config.BASE_URL);
     // locate the element in the webUI
     const locator = page.locator(homepageElement);
     // assert that it's visible
