@@ -1,6 +1,6 @@
 const config = {
   requireModule: ['ts-node/register'],
-  require: ['tests/acceptance/**/*.ts'],
+  require: ['e2e/**/*.ts'],
   format: [
     'json:reports/cucumber-report.json',
     'html:reports/report.html',
