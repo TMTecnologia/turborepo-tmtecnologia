@@ -5,7 +5,11 @@
     "rootDir": ".",
     "paths": {
       "@root/*": ["./*"]
-    }
+    },
+    "target": "ES6",
+    "module": "CommonJS",
+    "allowSyntheticDefaultImports": true,
+    "noImplicitReturns": true
   },
   "include": [
     "next-env.d.ts",
@@ -13,7 +17,7 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.js",
-    "tests/**/*.js",
+    "tests/**/*.ts",
     "cucumber.js"
   ],
 }
