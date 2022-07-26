@@ -16,8 +16,6 @@
     "next-auth.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "**/*.js",
-    "tests/**/*.ts",
     "cucumber.mjs"
   ],
 }
