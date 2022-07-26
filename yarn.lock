@@ -38,6 +38,7 @@ __metadata:
     "@trpc/next": ^9.26.2
     "@trpc/react": ^9.26.2
     "@trpc/server": ^9.26.2
+    "@types/fs-extra": ^9.0.13
     "@types/node": 18.0.0
     "@types/react": 18.0.15
     "@types/react-dom": 18.0.6
@@ -45,6 +46,7 @@ __metadata:
     eslint: 8.20.0
     eslint-config-acme: 0.0.0
     eslint-config-next: 12.2.2
+    fs-extra: ^10.1.0
     next: 12.2.1
     next-auth: ^4.10.2
     postcss: ^8.4.14
@@ -4754,6 +4756,15 @@ __metadata:
     "@types/qs": "*"
     "@types/serve-static": "*"
   checksum: 12a2a0e6c4b993fc0854bec665906788aea0d8ee4392389d7a98a5de1eefdd33c9e1e40a91f3afd274011119c506f7b4126acb97fae62ae20b654974d44cba12
+  languageName: node
+  linkType: hard
+
+"@types/fs-extra@npm:^9.0.13":
+  version: 9.0.13
+  resolution: "@types/fs-extra@npm:9.0.13"
+  dependencies:
+    "@types/node": "*"
+  checksum: add79e212acd5ac76b97b9045834e03a7996aef60a814185e0459088fd290519a3c1620865d588fa36c4498bf614210d2a703af5cf80aa1dbc125db78f6edac3
   languageName: node
   linkType: hard
 

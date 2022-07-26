@@ -28,6 +28,7 @@
     "@cucumber/cucumber": "8.5.0",
     "@cucumber/pretty-formatter": "^1.0.0",
     "@playwright/test": "^1.24.0",
+    "@types/fs-extra": "^9.0.13",
     "@types/node": "18.0.0",
     "@types/react": "18.0.15",
     "@types/react-dom": "18.0.6",
@@ -35,6 +36,7 @@
     "eslint": "8.20.0",
     "eslint-config-acme": "0.0.0",
     "eslint-config-next": "12.2.2",
+    "fs-extra": "^10.1.0",
     "postcss": "^8.4.14",
     "tailwindcss": "^3.1.6",
     "ts-node": "^10.9.1",
@@ -45,6 +47,14 @@
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start",
-    "test:e2e": "cucumber-js"
+    "test": "cucumber-js",
+    "test:api": "DEBUG=pw:api cucumber-js",
+    "test:debug": "PWDEBUG=1 DEBUG=pw:api cucumber-js",
+    "test:video": "PWVIDEO=1 cucumber-js",
+    "test:tags": "yarn test:all --tags",
+    "test:parallel": "yarn test:all --parallel=2",
+    "test:dry": "yarn test:all --dry-run",
+    "test:all": "cucumber-js e2e/features/**/*.feature",
+    "test:snippets": "yarn test:dry --format snippets"
   }
 }
