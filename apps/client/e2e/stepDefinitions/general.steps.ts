@@ -1,7 +1,7 @@
 import { Then } from '@cucumber/cucumber';
 
-import { ICustomWorld } from '../support/custom-world';
-import { getImagePath } from '../utils/imageHelpers';
+import { ICustomWorld } from '@e2e/support/custom-world';
+import { getImagePath } from '@e2e/utils/imageHelpers';
 
 Then(
   'faz uma captura de tela {string}',

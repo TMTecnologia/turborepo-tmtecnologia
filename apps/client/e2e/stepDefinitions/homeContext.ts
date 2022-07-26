@@ -2,8 +2,8 @@ import { Given, Then } from '@cucumber/cucumber';
 // import expect for assertion
 import { expect } from '@playwright/test';
 
-import { config } from '../support/config';
-import { ICustomWorld } from '../support/custom-world';
+import { config } from '@e2e/support/config';
+import { ICustomWorld } from '@e2e/support/custom-world';
 
 //define selectors
 const homepageElement = 'h1';

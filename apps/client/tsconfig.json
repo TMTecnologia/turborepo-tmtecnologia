@@ -4,7 +4,8 @@
     "baseUrl": "./src",
     "rootDir": ".",
     "paths": {
-      "@root/*": ["./*"]
+      "@root/*": ["./*"],
+      "@e2e/*": ["../e2e/*"]
     },
     "target": "ES6",
     "module": "CommonJS",
@@ -18,4 +19,7 @@
     "**/*.tsx",
     "cucumber.mjs"
   ],
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  }
 }

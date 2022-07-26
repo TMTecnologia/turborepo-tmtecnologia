@@ -1,7 +1,7 @@
 import { join } from 'path';
 
-import { config } from '../support/config';
-import { ICustomWorld } from '../support/custom-world';
+import { config } from '@e2e/support/config';
+import { ICustomWorld } from '@e2e/support/custom-world';
 
 interface ImagePathOptions {
   skipOs: boolean;
