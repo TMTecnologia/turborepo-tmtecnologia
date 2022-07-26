@@ -8,6 +8,8 @@
 # testing
 /coverage
 /reports
+/screenshots
+/traces
 
 # next.js
 /.next/
