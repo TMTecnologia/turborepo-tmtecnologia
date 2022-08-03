@@ -1,0 +1,31 @@
+name: E2E Tests
+
+on: [pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🏗 Setup repo
+        uses: actions/checkout@v3
+
+      - name: 🏗 Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+          cache: yarn
+          cache-dependency-path: '**/yarn.lock'
+
+      - name: 📦 Install dependencies
+        run: yarn install --immutable
+
+      - name: Waiting for 200 from the Vercel Preview
+        uses: patrickedqvist/wait-for-vercel-preview@v1.2.0
+        id: vercelPreview
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 🥒🎭 Run E2E Tests
+        run: yarn workspace @acme/client test:all
+        env:
+          BROWSER_URL: ${{ steps.vercelPreview.outputs.url }}
