@@ -1,0 +1,21 @@
+name: Notifier
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  notifyTelegram:
+    runs-on: ubuntu-latest
+    steps:
+    - name: send custom message
+      uses: appleboy/telegram-action@master
+      with:
+        to: ${{ secrets.TELEGRAM_TO }}
+        token: ${{ secrets.TELEGRAM_TOKEN }}
+        message: |
+          Salve devs, nova Issue!
+          Link do Github Projects:
+          https://github.com/orgs/labfaz/projects/1
+          Link da Issue:
+          https://github.com/labfaz/monorepo/issues/${{ github.event.issue.number}}
