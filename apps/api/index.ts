@@ -1,7 +1,8 @@
-import { appRouter, createContext } from '@acme/routers';
 import * as trpcExpress from '@trpc/server/adapters/express';
 import cors from 'cors';
 import express from 'express';
+
+import { appRouter, createContext } from '@acme/routers';
 
 async function main() {
   const app = express();
