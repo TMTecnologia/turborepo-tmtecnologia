@@ -4,5 +4,5 @@ Funcionalidade: Carregar Página Inicial
 
   Cenário: Ler título da página inicial
     Dado um usuário tenha navegado para a página inicial
-    Então debug
     Então o título da página deveria ser mostrado
+    Então faz uma captura de tela "home"
