@@ -1,0 +1,31 @@
+name: Lighthouse Tests
+
+on: [pull_request]
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create report directory
+        run: mkdir -p ${{ github.workspace }}/tmp/artifacts
+
+      - name: Waiting for 200 from the Vercel Preview
+        uses: patrickedqvist/wait-for-vercel-preview@v1.2.0
+        id: vercelPreview
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run Lighthouse audit on preview urls
+        uses: foo-software/lighthouse-check-action@master
+        with:
+          device: 'all'
+          gitHubAccessToken: ${{ secrets.GITHUB_TOKEN }}
+          outputDirectory: ${{ github.workspace }}/tmp/artifacts
+          urls: '${{ steps.vercelPreview.outputs.url }}'
+          prCommentEnabled: true
+
+      - name: Upload reports
+        uses: actions/upload-artifact@master
+        with:
+          name: Lighthouse reports
+          path: ${{ github.workspace }}/tmp/artifacts
