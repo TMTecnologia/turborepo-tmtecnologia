@@ -52,7 +52,7 @@ type TechnologyCardProps = {
 
 const Home: NextPage = () => {
   const hello = trpc.useQuery(['example.hello', { text: 'from tRPC' }]);
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
 
   return (
     <>
