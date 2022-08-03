@@ -28,6 +28,7 @@ __metadata:
     "@acme/core": 0.0.0
     "@acme/db": 0.0.0
     "@acme/tsconfig": 0.0.0
+    "@axe-core/react": ^4.4.3
     "@cucumber/cucumber": 8.5.0
     "@cucumber/pretty-formatter": ^1.0.0
     "@hookform/error-message": ^2.0.0
@@ -148,6 +149,16 @@ __metadata:
     "@jridgewell/gen-mapping": ^0.1.0
     "@jridgewell/trace-mapping": ^0.3.9
   checksum: d74d170d06468913921d72430259424b7e4c826b5a7d39ff839a29d547efb97dc577caa8ba3fb5cf023624e9af9d09651afc3d4112a45e2050328abc9b3a2292
+  languageName: node
+  linkType: hard
+
+"@axe-core/react@npm:^4.4.3":
+  version: 4.4.3
+  resolution: "@axe-core/react@npm:4.4.3"
+  dependencies:
+    axe-core: ^4.4.1
+    requestidlecallback: ^0.3.0
+  checksum: acc78f83552b6c4cc40eb112457d8fd325e04288bf3f638a1fe327974f6ffc802d66fdf2132df5692eda4c1bbccf7a75c3df8c2e2f1c2876d3417618db43b340
   languageName: node
   linkType: hard
 
@@ -6398,7 +6409,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axe-core@npm:^4.4.2, axe-core@npm:^4.4.3":
+"axe-core@npm:^4.4.1, axe-core@npm:^4.4.2, axe-core@npm:^4.4.3":
   version: 4.4.3
   resolution: "axe-core@npm:4.4.3"
   checksum: c3ea000d9ace3ba0bc747c8feafc24b0de62a0f7d93021d0f77b19c73fca15341843510f6170da563d51535d6cfb7a46c5fc0ea36170549dbb44b170208450a2
@@ -17313,6 +17324,13 @@ __metadata:
   dependencies:
     is-finite: ^1.0.0
   checksum: d2db0b69c5cb0c14dd750036e0abcd6b3c3f7b2da3ee179786b755cf737ca15fa0fff417ca72de33d6966056f4695440e680a352401fc02c95ade59899afbdd0
+  languageName: node
+  linkType: hard
+
+"requestidlecallback@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "requestidlecallback@npm:0.3.0"
+  checksum: 2405aef711b516e326ff18849b24ad2c0e623d2b60397bdc7919fa40d8575fce0a16a563a53f94ec89d255325a99e5deee952e6024584a5179cbbabb4469f0e8
   languageName: node
   linkType: hard
 
