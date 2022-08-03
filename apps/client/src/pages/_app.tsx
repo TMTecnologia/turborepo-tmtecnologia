@@ -1,4 +1,5 @@
 // src/pages/_app.tsx
+import React from 'react';
 import { withTRPC } from '@trpc/next';
 import type { AppType } from 'next/dist/shared/lib/utils';
 import { SessionProvider } from 'next-auth/react';
@@ -12,6 +13,14 @@ const MyApp: AppType = ({
   Component,
   pageProps: { session, ...pageProps },
 }) => {
+  if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
+    import('react-dom').then((ReactDOM) => {
+      import('@axe-core/react').then((axe) => {
+        axe.default(React, ReactDOM, 1000, {});
+      });
+    });
+  }
+
   return (
     <SessionProvider session={session}>
       <Component {...pageProps} />
