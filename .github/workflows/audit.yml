@@ -1,0 +1,12 @@
+name: Audit
+
+on: [pull_request]
+
+jobs:
+  dependencies:
+    name: audit-ci
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Check for vulnerabilities
+        run: yarn dlx audit-ci@^6 --config ./audit-ci.jsonc
