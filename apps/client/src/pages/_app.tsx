@@ -3,6 +3,7 @@ import React from 'react';
 import { withTRPC } from '@trpc/next';
 import type { AppType } from 'next/dist/shared/lib/utils';
 import { SessionProvider } from 'next-auth/react';
+import { appWithTranslation } from 'next-i18next';
 import superjson from 'superjson';
 
 import type { AppRouter } from '@root/server/router';
@@ -58,4 +59,4 @@ export default withTRPC<AppRouter>({
    * @link https://trpc.io/docs/ssr
    */
   ssr: false,
-})(MyApp);
+})(appWithTranslation(MyApp as React.FunctionComponent));
