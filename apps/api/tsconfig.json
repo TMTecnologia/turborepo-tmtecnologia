@@ -1,0 +1,6 @@
+{
+  "extends": "@acme/tsconfig/node16.json",
+  "compilerOptions": {
+    "esModuleInterop": true
+  }
+}
