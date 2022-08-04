@@ -2,6 +2,7 @@
 import { useForm } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
 import { zodResolver } from '@hookform/resolvers/zod';
+import * as Checkbox from '@radix-ui/react-checkbox';
 import cntl from 'cntl';
 import type { NextPage } from 'next';
 import Head from 'next/head';
@@ -79,6 +80,9 @@ const Home: NextPage = () => {
         <h1 className="text-5xl md:text-[5rem] leading-normal font-extrabold text-gray-700">
           Create <span className="text-purple-300">T3</span> App
         </h1>
+        <Checkbox.Root>
+          <Checkbox.Indicator />
+        </Checkbox.Root>
         <p className="text-2xl text-gray-700">This stack uses:</p>
         <div className="grid gap-3 pt-3 mt-3 text-center md:grid-cols-2 lg:w-2/3">
           <TechnologyCard
