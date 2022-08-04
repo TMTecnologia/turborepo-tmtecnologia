@@ -1,3 +1,4 @@
+/* eslint-disable i18next/no-literal-string */
 import { useForm } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
 import { zodResolver } from '@hookform/resolvers/zod';
