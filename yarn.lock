@@ -9650,6 +9650,7 @@ __metadata:
     eslint-config-next: 12.2.2
     eslint-config-prettier: ^8.3.0
     eslint-plugin-abcsize: ^0.0.3
+    eslint-plugin-i18next: next
     eslint-plugin-import: ^2.26.0
     eslint-plugin-jsx-a11y: ^6.6.1
     eslint-plugin-markdownlint: ^0.4.0
@@ -9734,6 +9735,15 @@ __metadata:
   version: 0.0.3
   resolution: "eslint-plugin-abcsize@npm:0.0.3"
   checksum: 8e649b1619d186aa54708a2a21011169c5aef96b161b2b35230be063b4566dc797cda7266f4b2ab8220aee19bd13e42e1e4c51378dc5979397d359646d8f97e8
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-i18next@npm:next":
+  version: 6.0.0-2
+  resolution: "eslint-plugin-i18next@npm:6.0.0-2"
+  dependencies:
+    requireindex: ~1.1.0
+  checksum: 920d7bd1c2e98a3b7c43ca46a5f7400a16360f1920f7d695caf4f04c95a85005300900f5d0d4a44b3625cd8da8b6ef3903188bf1f9e3a74262c7da48dbd11e56
   languageName: node
   linkType: hard
 
