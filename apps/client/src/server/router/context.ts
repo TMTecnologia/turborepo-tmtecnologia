@@ -7,6 +7,8 @@ import { authOptions as nextAuthOptions } from '@root/pages/api/auth/[...nextaut
 import { prisma } from '@root/server/db/client';
 import i18n from '@root/server/i18n';
 
+import { TFunction } from './i18next-overrides';
+
 export const createContext = async (
   opts?: trpcNext.CreateNextContextOptions
 ) => {
@@ -16,7 +18,7 @@ export const createContext = async (
   const session =
     req && res && (await getServerSession(req, res, nextAuthOptions));
 
-  const translate = i18n();
+  const translate: TFunction = i18n();
 
   return {
     req,

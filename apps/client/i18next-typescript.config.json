@@ -1,0 +1,8 @@
+{
+  "inFolder": "src/server/locales/pt",
+  "outFile": "src/server/router/i18next.keys.ts",
+  "defaultNs": "common",
+  "indent": 2,
+  "typeName": "TranslationKeys",
+  "quoteChar": "'"
+}
