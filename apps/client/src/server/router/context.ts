@@ -5,6 +5,7 @@ import { unstable_getServerSession as getServerSession } from 'next-auth';
 
 import { authOptions as nextAuthOptions } from '@root/pages/api/auth/[...nextauth]';
 import { prisma } from '@root/server/db/client';
+import i18n from '@root/server/i18n';
 
 export const createContext = async (
   opts?: trpcNext.CreateNextContextOptions
@@ -15,11 +16,14 @@ export const createContext = async (
   const session =
     req && res && (await getServerSession(req, res, nextAuthOptions));
 
+  const translate = i18n();
+
   return {
     req,
     res,
     session,
     prisma,
+    translate,
   };
 };
 
