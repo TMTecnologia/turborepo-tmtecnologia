@@ -2,6 +2,7 @@
 import { useForm } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
 import { zodResolver } from '@hookform/resolvers/zod';
+import cntl from 'cntl';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useTranslation } from 'next-i18next';
@@ -51,6 +52,17 @@ type TechnologyCardProps = {
   documentation: string;
 };
 
+const mainCN = cntl`
+  container
+  mx-auto
+  flex
+  flex-col
+  items-center
+  justify-center
+  h-screen
+  p-4
+`;
+
 const Home: NextPage = () => {
   const hello = trpc.useQuery(['example.hello', { text: 'tRPC' }]);
   const { t } = useTranslation('common');
@@ -63,7 +75,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="container mx-auto flex flex-col items-center justify-center h-screen p-4">
+      <main className={mainCN}>
         <h1 className="text-5xl md:text-[5rem] leading-normal font-extrabold text-gray-700">
           Create <span className="text-purple-300">T3</span> App
         </h1>
