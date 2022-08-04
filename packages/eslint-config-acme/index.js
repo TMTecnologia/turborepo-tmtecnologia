@@ -11,6 +11,7 @@ module.exports = {
     'abcsize',
     'write-good-comments',
     'jsx-a11y',
+    'i18next',
   ],
   extends: [
     'eslint:recommended',
@@ -18,6 +19,7 @@ module.exports = {
     'plugin:@cspell/recommended',
     'plugin:abcsize/recommended',
     'plugin:jsx-a11y/recommended',
+    'plugin:i18next/recommended',
     'next/core-web-vitals',
     'prettier',
   ],
