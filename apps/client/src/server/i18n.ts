@@ -1,5 +1,6 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const i18next = require('i18next');
+import i18next from 'i18next';
+
+import { TFunction } from './i18next-overrides';
 
 // if no language parameter exists, let's try to use the node.js system's locale
 const systemLocale = Intl.DateTimeFormat().resolvedOptions().locale;
@@ -15,6 +16,6 @@ i18next.init({
   },
 });
 
-module.exports = (lng) => {
+export function i18n(lng?: string): TFunction {
   return i18next.getFixedT(lng || systemLocale);
-};
+}
