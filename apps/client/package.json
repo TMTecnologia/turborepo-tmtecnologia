@@ -14,6 +14,7 @@
     "@trpc/next": "^9.26.2",
     "@trpc/react": "^9.26.2",
     "@trpc/server": "^9.26.2",
+    "cntl": "^1.0.0",
     "next": "12.2.1",
     "next-auth": "4.10.3",
     "next-i18next": "^11.3.0",
