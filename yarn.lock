@@ -49,6 +49,7 @@ __metadata:
     eslint-config-acme: 0.0.0
     eslint-config-next: 12.2.2
     fs-extra: ^10.1.0
+    i18next-typescript: ^0.1.0
     next: 12.2.1
     next-auth: 4.10.3
     next-i18next: ^11.3.0
@@ -7685,7 +7686,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^6.2.1":
+"commander@npm:^6.1.0, commander@npm:^6.2.1":
   version: 6.2.1
   resolution: "commander@npm:6.2.1"
   checksum: d7090410c0de6bc5c67d3ca41c41760d6d268f3c799e530aafb73b7437d1826bbf0d2a3edac33f8b57cc9887b4a986dce307fa5557e109be40eadb7c43b21742
@@ -12026,6 +12027,20 @@ __metadata:
   version: 1.1.4
   resolution: "i18next-fs-backend@npm:1.1.4"
   checksum: 7da252aa618f82555a99709b0f8afed997b7b20aeb5e66c92fe13f5b676c80b8a3cad24a1e38c599c6ab6e9169c4be87268c30e48cf1965cbcc8a69ff76bd0a4
+  languageName: node
+  linkType: hard
+
+"i18next-typescript@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "i18next-typescript@npm:0.1.0"
+  dependencies:
+    chokidar: ^3.4.2
+    commander: ^6.1.0
+  peerDependencies:
+    i18next: ^19.7.0
+  bin:
+    i18next-typescript: lib/cli.js
+  checksum: ffa9726e5471e07e2286940b7b295620259c88efa539bcd93be730adbea1d01aa9ea9b2e091334c77cefc85d5659fdc4002f2afdf2a7ff0fd1a38a2ad2e5ef4a
   languageName: node
   linkType: hard
 
