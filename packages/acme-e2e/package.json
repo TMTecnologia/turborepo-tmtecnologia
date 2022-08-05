@@ -19,5 +19,16 @@
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.0.0",
     "typescript": "^4.7.4"
+  },
+  "scripts": {
+    "test": "cucumber-js",
+    "test:api": "DEBUG=pw:api cucumber-js",
+    "test:debug": "PWDEBUG=1 DEBUG=pw:api cucumber-js",
+    "test:video": "PWVIDEO=1 cucumber-js",
+    "test:tags": "yarn test:all --tags",
+    "test:parallel": "yarn test:all --parallel=2",
+    "test:dry": "yarn test:all --dry-run",
+    "test:all": "cucumber-js e2e/features/**/*.feature",
+    "test:snippets": "yarn test:dry --format snippets"
   }
 }
