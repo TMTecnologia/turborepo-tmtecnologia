@@ -30,7 +30,8 @@ function doesDescriptionExists() {
   if (!danger.github.pr.body || danger.github.pr.body.length < 50) {
     const title = ':grey_question: Missing Description';
     const idea =
-      'The description seems short, could you tell us a little more about your changes?';
+      'The description seems short, ' +
+      'could you tell us a little more about your changes?';
     fail(`${title} - <i>${idea}</i>`);
   }
 }
@@ -92,7 +93,8 @@ if (danger.github?.pr) {
   if (!isMergeRefMain && !isMergeRefStable) {
     const title = ':exclamation: Base Branch';
     const idea =
-      'The base branch for this PR is something other than `main` or a `-stable` branch';
+      'The base branch for this PR is something ' +
+      'other than `main` or a `-stable` branch';
     fail(`${title} - <i>${idea}</i>`);
   }
 }
