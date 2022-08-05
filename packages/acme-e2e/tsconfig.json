@@ -13,6 +13,7 @@
   },
   "include": [
     "**/*.ts",
+    "cucumber.mjs"
   ],
   "ts-node": {
     "require": ["tsconfig-paths/register"]
