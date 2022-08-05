@@ -115,6 +115,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@acme/e2e@workspace:packages/acme-e2e":
+  version: 0.0.0-use.local
+  resolution: "@acme/e2e@workspace:packages/acme-e2e"
+  languageName: unknown
+  linkType: soft
+
 "@acme/routers@0.0.0, @acme/routers@workspace:packages/acme-routers":
   version: 0.0.0-use.local
   resolution: "@acme/routers@workspace:packages/acme-routers"
