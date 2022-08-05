@@ -10217,6 +10217,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"danger-plugin-yarn@npm:^1.5.1":
+  version: 1.5.1
+  resolution: "danger-plugin-yarn@npm:1.5.1"
+  dependencies:
+    date-fns: ^1.28.5
+    lodash.flatten: ^4.4.0
+    lodash.includes: ^4.3.0
+    node-fetch: ^2.6.0
+    semver: ^5.4.1
+  checksum: a4a501ad28035af5cdcaa400e93633c8c4c9556d381049878eeceb0e2f8f88edf111ba1ae349e8ffd561e50c134b078db1a6898ccb63661e299af97543c78ea4
+  languageName: node
+  linkType: hard
+
 "danger@npm:11.1.1":
   version: 11.1.1
   resolution: "danger@npm:11.1.1"
@@ -10276,6 +10289,13 @@ __metadata:
   version: 7.0.0
   resolution: "dargs@npm:7.0.0"
   checksum: b8f1e3cba59c42e1f13a114ad4848c3fc1cf7470f633ee9e9f1043762429bc97d91ae31b826fb135eefde203a3fdb20deb0c0a0222ac29d937b8046085d668d1
+  languageName: node
+  linkType: hard
+
+"date-fns@npm:^1.28.5":
+  version: 1.30.1
+  resolution: "date-fns@npm:1.30.1"
+  checksum: 86b1f3269cbb1f3ee5ac9959775ea6600436f4ee2b78430cd427b41a0c9fabf740b1a5d401c085f3003539a6f4755c7c56c19fbd70ce11f6f673f6bc8075b710
   languageName: node
   linkType: hard
 
@@ -15668,6 +15688,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash.flatten@npm:^4.4.0":
+  version: 4.4.0
+  resolution: "lodash.flatten@npm:4.4.0"
+  checksum: 0ac34a393d4b795d4b7421153d27c13ae67e08786c9cbb60ff5b732210d46f833598eee3fb3844bb10070e8488efe390ea53bb567377e0cb47e9e630bf0811cb
+  languageName: node
+  linkType: hard
+
 "lodash.includes@npm:^4.3.0":
   version: 4.3.0
   resolution: "lodash.includes@npm:4.3.0"
@@ -19672,6 +19699,7 @@ __metadata:
     commitizen-emoji: 1.0.5
     commitlint: 17.0.3
     danger: 11.1.1
+    danger-plugin-yarn: ^1.5.1
     eslint: 8.21.0
     eslint-config-acme: 0.0.0
     husky: 8.0.0
