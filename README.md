@@ -43,6 +43,8 @@ Clone the design system example locally or [from GitHub](https://github.com/TMTe
 >>> cp .env apps/client/.env
 >>> docker-compose up -d
 >>> yarn workspace @acme/db prisma db push
+# build core
+>>> yarn workspace @acme/core build
 >>> yarn dev
 ```
 
