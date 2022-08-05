@@ -1,0 +1,20 @@
+{
+  "extends": "@acme/tsconfig/next.json",
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "rootDir": ".",
+    "paths": {
+      "@root/*": ["./*"],
+    },
+    "target": "ES6",
+    "module": "CommonJS",
+    "allowSyntheticDefaultImports": true,
+    "noImplicitReturns": true
+  },
+  "include": [
+    "**/*.ts",
+  ],
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  }
+}
