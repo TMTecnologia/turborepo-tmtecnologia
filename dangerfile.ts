@@ -25,13 +25,17 @@ if (packageChanged && !lockfileChanged) {
   warn(`${title} - <i>${idea}</i>`);
 }
 
-function isDescriptionCorrectlyFormatted() {
+function doesDescriptionExists() {
   // Provides advice if body is too short or non-existent
   if (!danger.github.pr.body || danger.github.pr.body.length < 50) {
-    fail(':grey_question: Missing PR description.');
-    return;
+    const title = ':grey_question: Missing Description';
+    const idea =
+      'The description seems short, could you tell us a little more about your changes?';
+    fail(`${title} - <i>${idea}</i>`);
   }
+}
 
+function isDescriptionCorrectlyFormatted() {
   // Provides advice if a summary section is missing
   const includesSummary = danger.github.pr.body
     .toLowerCase()
@@ -78,6 +82,7 @@ if (danger.github?.pr) {
     warn(`${title} - <i>${idea}</i>`);
   }
 
+  doesDescriptionExists();
   isDescriptionCorrectlyFormatted();
 
   // Warns if the PR targets stable, as commits need to be cherry picked and tagged by a release maintainer.
