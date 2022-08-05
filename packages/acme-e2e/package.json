@@ -13,8 +13,8 @@
   "devDependencies": {
     "@acme/tsconfig": "0.0.0",
     "@types/fs-extra": "^9.0.13",
-    "@types/node": "18.0.0",
-    "eslint": "8.20.0",
+    "@types/node": "^18.6.4",
+    "eslint": "^8.21.0",
     "eslint-config-acme": "0.0.0",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.0.0",
@@ -22,13 +22,13 @@
   },
   "scripts": {
     "test": "cucumber-js",
+    "test:all": "cucumber-js e2e/features/**/*.feature",
     "test:api": "DEBUG=pw:api cucumber-js",
     "test:debug": "PWDEBUG=1 DEBUG=pw:api cucumber-js",
-    "test:video": "PWVIDEO=1 cucumber-js",
-    "test:tags": "yarn test:all --tags",
-    "test:parallel": "yarn test:all --parallel=2",
     "test:dry": "yarn test:all --dry-run",
-    "test:all": "cucumber-js e2e/features/**/*.feature",
-    "test:snippets": "yarn test:dry --format snippets"
+    "test:parallel": "yarn test:all --parallel=2",
+    "test:snippets": "yarn test:dry --format snippets",
+    "test:tags": "yarn test:all --tags",
+    "test:video": "PWVIDEO=1 cucumber-js"
   }
 }
