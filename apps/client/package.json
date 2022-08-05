@@ -44,9 +44,8 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "i18n:api": "i18next-typescript",
-    "i18n:api:g": "yarn i18n:api generate",
-    "i18n:api:w": "yarn i18n:api watch",
+    "i18n:api": "yarn i18next-typescript generate",
+    "i18n:api:w": "yarn i18next-typescript watch",
     "lint": "next lint",
     "start": "next start"
   }
