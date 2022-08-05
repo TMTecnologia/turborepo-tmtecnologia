@@ -86,7 +86,6 @@ if (danger.github?.pr) {
   doesDescriptionExists();
   isDescriptionCorrectlyFormatted();
 
-  // Warns if the PR targets stable, as commits need to be cherry picked and tagged by a release maintainer.
   // Fails if the PR targets anything other than `main` or `-stable`.
   const isMergeRefMain = danger.github.pr.base.ref === 'main';
   const isMergeRefStable = danger.github.pr.base.ref.indexOf('-stable') !== -1;
