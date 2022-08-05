@@ -1,4 +1,5 @@
 import { danger, fail, message, warn } from 'danger';
+import yarn from 'danger-plugin-yarn';
 
 const docs = danger.git.fileMatch('**/*.md');
 const app = danger.git.fileMatch('(apps|packages)/**/*.ts*');
@@ -16,14 +17,7 @@ if (app.modified && !tests.modified) {
   );
 }
 
-const packageChanged = danger.git.modified_files.includes('package.json');
-const lockfileChanged = danger.git.modified_files.includes('yarn.lock');
-if (packageChanged && !lockfileChanged) {
-  const title =
-    ':lock: Changes were made to package.json, but not to yarn.lock';
-  const idea = 'Perhaps you need to run `yarn install`?';
-  warn(`${title} - <i>${idea}</i>`);
-}
+yarn();
 
 function enforceLinearHistory() {
   // Source: https://github.com/amsourav/danger-plugin-linear-history/blob/master/src/index.ts
