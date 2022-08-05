@@ -4,8 +4,8 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "@prisma/client": "^4.1.0",
-    "prisma": "^4.1.0"
+    "@prisma/client": "4.1.0",
+    "prisma": "4.1.0"
   },
   "files": [
     "index.ts"

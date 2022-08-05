@@ -4,23 +4,23 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "@cspell/eslint-plugin": "^6.4.0",
-    "@typescript-eslint/eslint-plugin": "^5.30.6",
-    "@typescript-eslint/parser": "^5.30.6",
+    "@cspell/eslint-plugin": "6.4.0",
+    "@typescript-eslint/eslint-plugin": "5.30.6",
+    "@typescript-eslint/parser": "5.30.6",
     "eslint-config-next": "12.2.2",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-abcsize": "^0.0.3",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-abcsize": "0.0.3",
     "eslint-plugin-i18next": "next",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-markdownlint": "^0.4.0",
-    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-markdownlint": "0.4.0",
+    "eslint-plugin-prettier": "4.2.1",
     "eslint-plugin-react": "7.29.4",
-    "eslint-plugin-simple-import-sort": "^7.0.0",
-    "eslint-plugin-write-good-comments": "^0.1.4"
+    "eslint-plugin-simple-import-sort": "7.0.0",
+    "eslint-plugin-write-good-comments": "0.1.4"
   },
   "devDependencies": {
-    "eslint": "^8.21.0",
-    "prettier": "^2.7.1"
+    "eslint": "8.21.0",
+    "prettier": "2.7.1"
   },
   "main": "index.js"
 }
