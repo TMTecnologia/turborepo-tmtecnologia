@@ -49,7 +49,7 @@
     "danger:remote": "danger local --dangerfile dangerfile.ts --base origin/main",
     "dev": "turbo run dev --no-cache --parallel --continue",
     "format": "run-p format:\\*",
-    "format:markdown": "eslint *.md --quiet --fix",
+    "format:markdown": "eslint . --quiet --fix --ext md",
     "format:turbo": "turbo run format",
     "lint": "turbo run lint",
     "postinstall": "husky install",
