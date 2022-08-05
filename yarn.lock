@@ -120,9 +120,15 @@ __metadata:
   resolution: "@acme/e2e@workspace:packages/acme-e2e"
   dependencies:
     "@acme/tsconfig": 0.0.0
+    "@cucumber/cucumber": 8.5.0
+    "@cucumber/messages": ^19.1.2
+    "@cucumber/pretty-formatter": ^1.0.0
+    "@playwright/test": ^1.24.0
+    "@types/fs-extra": ^9.0.13
     "@types/node": 18.0.0
     eslint: 8.20.0
     eslint-config-acme: 0.0.0
+    fs-extra: ^10.1.0
     ts-node: ^10.9.1
     tsconfig-paths: ^4.0.0
     typescript: ^4.7.4
@@ -2675,7 +2681,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cucumber/messages@npm:19.1.2, @cucumber/messages@npm:^19.0.0":
+"@cucumber/messages@npm:19.1.2, @cucumber/messages@npm:^19.0.0, @cucumber/messages@npm:^19.1.2":
   version: 19.1.2
   resolution: "@cucumber/messages@npm:19.1.2"
   dependencies:
