@@ -118,6 +118,12 @@ __metadata:
 "@acme/e2e@workspace:packages/acme-e2e":
   version: 0.0.0-use.local
   resolution: "@acme/e2e@workspace:packages/acme-e2e"
+  dependencies:
+    "@acme/tsconfig": 0.0.0
+    "@types/node": 18.0.0
+    ts-node: ^10.9.1
+    tsconfig-paths: ^4.0.0
+    typescript: ^4.7.4
   languageName: unknown
   linkType: soft
 
