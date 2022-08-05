@@ -3111,20 +3111,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@gitmoji/commit-types@npm:1.1.5":
-  version: 1.1.5
-  resolution: "@gitmoji/commit-types@npm:1.1.5"
-  checksum: 132aa891aff0b23e0db3e9aa629ed758e5432465e8af9bc32e6a7a186a9708fc83dced2d6ef75eb43b725a3de0ef33908012c7d0cf2e8e7a9716d170e2814adc
-  languageName: node
-  linkType: hard
-
-"@gitmoji/parser-opts@npm:1.3.0":
-  version: 1.3.0
-  resolution: "@gitmoji/parser-opts@npm:1.3.0"
-  checksum: 86ada608666f8b686f0b261b7485140efff8ee0c2e27998f3597cd302e899dab3abc493047ea5c959efe004ca6374fd23df81fb5d19b3ac8276ba8f70e03ed35
-  languageName: node
-  linkType: hard
-
 "@hookform/error-message@npm:2.0.0":
   version: 2.0.0
   resolution: "@hookform/error-message@npm:2.0.0"
@@ -9496,29 +9482,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commitlint-config-gitmoji@npm:2.2.5":
-  version: 2.2.5
-  resolution: "commitlint-config-gitmoji@npm:2.2.5"
-  dependencies:
-    "@gitmoji/commit-types": 1.1.5
-    "@gitmoji/parser-opts": 1.3.0
-    commitlint-plugin-gitmoji: 2.2.0
-  checksum: 8ae2929eceba1e17da44358a00439e5c018ffb5a9f457c0e2f53a9204fabf1dc4136d764ba8075a8bc66b4b20af0a88b472c1b90303df0760f60ba03a18c9e24
-  languageName: node
-  linkType: hard
-
-"commitlint-plugin-gitmoji@npm:2.2.0":
-  version: 2.2.0
-  resolution: "commitlint-plugin-gitmoji@npm:2.2.0"
-  dependencies:
-    dotenv: ^8.2.0
-    emoji-name-map: ^1.2.9
-  peerDependencies:
-    commitlint: ^11.0.0
-  checksum: 7e803534e4a037668174fcde6102f123184d52974dccd189611ce12f446b4da99afa06c9b80147e5317e91c3f004e548104336a479c35f6ca097c2859ac2b192
-  languageName: node
-  linkType: hard
-
 "commitlint@npm:17.0.3":
   version: 17.0.3
   resolution: "commitlint@npm:17.0.3"
@@ -10718,7 +10681,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:^8.0.0, dotenv@npm:^8.2.0":
+"dotenv@npm:^8.0.0":
   version: 8.6.0
   resolution: "dotenv@npm:8.6.0"
   checksum: 38e902c80b0666ab59e9310a3d24ed237029a7ce34d976796349765ac96b8d769f6df19090f1f471b77a25ca391971efde8a1ea63bb83111bd8bec8e5cc9b2cd
@@ -10837,17 +10800,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"emoji-name-map@npm:^1.2.9":
-  version: 1.2.9
-  resolution: "emoji-name-map@npm:1.2.9"
-  dependencies:
-    emojilib: ^2.0.2
-    iterate-object: ^1.3.1
-    map-o: ^2.0.1
-  checksum: 3ab0b30d3322afa75ee7620dc0657722cbf2875a8e57f3126173ba35469a182574c2cc6ebedee307e699b87be42eed267df54a303949594a5b62e7e291649cc4
-  languageName: node
-  linkType: hard
-
 "emoji-regex@npm:^8.0.0":
   version: 8.0.0
   resolution: "emoji-regex@npm:8.0.0"
@@ -10859,13 +10811,6 @@ __metadata:
   version: 9.2.2
   resolution: "emoji-regex@npm:9.2.2"
   checksum: 8487182da74aabd810ac6d6f1994111dfc0e331b01271ae01ec1eb0ad7b5ecc2bbbbd2f053c05cb55a1ac30449527d819bbfbf0e3de1023db308cbcb47f86601
-  languageName: node
-  linkType: hard
-
-"emojilib@npm:^2.0.2":
-  version: 2.4.0
-  resolution: "emojilib@npm:2.4.0"
-  checksum: ea241c342abda5a86ffd3a15d8f4871a616d485f700e03daea38c6ce38205847cea9f6ff8d5e962c00516b004949cc96c6e37b05559ea71a0a496faba53b56da
   languageName: node
   linkType: hard
 
@@ -15055,13 +15000,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"iterate-object@npm:^1.3.0, iterate-object@npm:^1.3.1":
-  version: 1.3.4
-  resolution: "iterate-object@npm:1.3.4"
-  checksum: b63496c489177babccb4b487322279ea4377e08d02b93902c3ffba3032a788f014a74e03c615da2a24807fa3fca872f69c9570f7801c8e88181df7a49298904b
-  languageName: node
-  linkType: hard
-
 "iterate-value@npm:^1.0.2":
   version: 1.0.2
   resolution: "iterate-value@npm:1.0.2"
@@ -16013,15 +15951,6 @@ __metadata:
   version: 0.2.2
   resolution: "map-cache@npm:0.2.2"
   checksum: 3067cea54285c43848bb4539f978a15dedc63c03022abeec6ef05c8cb6829f920f13b94bcaf04142fc6a088318e564c4785704072910d120d55dbc2e0c421969
-  languageName: node
-  linkType: hard
-
-"map-o@npm:^2.0.1":
-  version: 2.0.10
-  resolution: "map-o@npm:2.0.10"
-  dependencies:
-    iterate-object: ^1.3.0
-  checksum: 1372253182149bd860cf9f81807e19492a10b182262f13cd61408454afa7a9912d40cee843746b84bc71da43b47281e626df289e5c545464664643a50e650bc1
   languageName: node
   linkType: hard
 
@@ -19721,7 +19650,6 @@ __metadata:
     commitizen: 4.2.4
     commitizen-emoji: 1.0.5
     commitlint: 17.0.3
-    commitlint-config-gitmoji: 2.2.5
     danger: 11.1.1
     eslint: 8.21.0
     eslint-config-acme: 0.0.0
