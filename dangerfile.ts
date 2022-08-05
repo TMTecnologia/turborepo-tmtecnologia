@@ -25,6 +25,23 @@ if (packageChanged && !lockfileChanged) {
   warn(`${title} - <i>${idea}</i>`);
 }
 
+function enforceLinearHistory() {
+  // Source: https://github.com/amsourav/danger-plugin-linear-history/blob/master/src/index.ts
+  const hasMergeCommit = danger.git.commits.some(
+    (commit) => commit.parents?.length > 1
+  );
+
+  if (hasMergeCommit) {
+    const title = ':twisted_rightwards_arrows: Merge Commit';
+    const idea =
+      'To help keep a linear history in `main` branch, ' +
+      'please rebase to remove merge commits';
+    fail(`${title} - <i>${idea}</i>`);
+  }
+}
+
+enforceLinearHistory();
+
 function doesDescriptionExists() {
   // Provides advice if body is too short or non-existent
   if (!danger.github.pr.body || danger.github.pr.body.length < 50) {
