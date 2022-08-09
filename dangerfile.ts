@@ -13,7 +13,8 @@ if (docs.edited) {
 
 if (app.modified && !tests.modified) {
   warn(
-    "There are app changes, but not tests. That's OK as long as you're refactoring existing code"
+    'There are app changes, but not tests.' +
+      "That's OK as long as you're refactoring existing code"
   );
 }
 
