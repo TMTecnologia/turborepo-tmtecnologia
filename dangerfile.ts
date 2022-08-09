@@ -1,5 +1,6 @@
 import { danger, fail, message, warn } from 'danger';
 import yarn from 'danger-plugin-yarn';
+import * as fs from 'fs';
 
 const docs = danger.git.fileMatch('**/*.md');
 const app = danger.git.fileMatch('(apps|packages)/**/*.ts*');
@@ -19,6 +20,88 @@ if (app.modified && !tests.modified) {
 }
 
 yarn();
+
+interface IAuditReport {
+  vulnerabilities: {
+    info: number;
+    low: number;
+    moderate: number;
+    high: number;
+    critical: number;
+  };
+  dependencies: number;
+  devDependencies: number;
+  optionalDependencies: number;
+  totalDependencies: number;
+}
+
+function filterDiffs(before, after) {
+  // Source: https://stackoverflow.com/questions/8431651/getting-a-diff-of-two-json-objects#answer-8432188
+  const result = {};
+  let key;
+  for (key in before) {
+    if (after[key] != before[key]) result[key] = after[key] - before[key];
+    if (typeof after[key] == 'object' && typeof before[key] == 'object')
+      result[key] = filterDiffs(before[key], after[key]);
+  }
+  return result;
+}
+
+function prettyPrintAuditReport(report: IAuditReport) {
+  // Source: https://github.com/revathskumar/danger-plugin-npm-audit
+  const { vulnerabilities, totalDependencies } = report;
+  const totalVulnerabilities = Object.values(vulnerabilities)
+    .filter((level) => level > 0)
+    .reduce((total, level) => total + level, 0);
+  const summary = Object.keys(vulnerabilities)
+    .map((level) => ({ level, count: vulnerabilities[level] }))
+    .filter((levelCount) => levelCount.count > 0)
+    .map((levelCount) => `${levelCount.count} ${levelCount.level}`)
+    .join(', ');
+
+  const title =
+    `found ${totalVulnerabilities} vulnerabilities (${summary}) ` +
+    `in ${totalDependencies} scanned packages`;
+  return `${title}`;
+}
+
+function yarnAuditCI() {
+  let before: IAuditReport;
+  let after: IAuditReport;
+
+  try {
+    before = JSON.parse(
+      fs.readFileSync(`${__dirname}/.diff/audit-ci/before.json`, 'utf8')
+    ) as IAuditReport;
+    after = JSON.parse(
+      fs.readFileSync(`${__dirname}/.diff/audit-ci/after.json`, 'utf8')
+    ) as IAuditReport;
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.log('yarnAuditCI: error parsing files, skipping rule');
+    return;
+  }
+
+  const diffs = filterDiffs(before, after) as IAuditReport;
+  message(JSON.stringify(diffs));
+  const saferRepo = Object.values(diffs.vulnerabilities).every(
+    (level) => level <= 0
+  );
+
+  if (saferRepo) {
+    message(':lock: Thanks for improving our codebase security');
+    return;
+  }
+  warn(
+    prettyPrintAuditReport(
+      Object.assign(diffs, {
+        totalDependencies: diffs.totalDependencies ?? after.totalDependencies,
+      })
+    )
+  );
+}
+
+yarnAuditCI();
 
 function enforceLinearHistory() {
   // Source: https://github.com/amsourav/danger-plugin-linear-history/blob/master/src/index.ts
