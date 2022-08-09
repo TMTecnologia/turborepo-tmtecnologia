@@ -1,5 +1,5 @@
 {
   "compilerOptions": {},
-  "include": ["apps/**/*", "packages/**/*", "dangerfile.ts"],
-  "exclude": ["dangerfile.ts", "node_modules"]
+  "include": ["apps/**/*", "packages/**/*", ".danger/**/*", "dangerfile.ts"],
+  "exclude": [".danger/**/*", "dangerfile.ts", "node_modules"]
 }
