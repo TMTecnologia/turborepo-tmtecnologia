@@ -5,6 +5,7 @@
   "allowlist": [
     "GHSA-w5p7-h5w8-2hfq|@storybook/*",
     "GHSA-7p7h-4mm5-852v",
-    "GHSA-ww39-953v-wcq6"
+    "GHSA-ww39-953v-wcq6",
+    "GHSA-xvch-5gv4-984h"
   ]
 }
