@@ -1,6 +1,7 @@
 import { danger, message, schedule, warn } from 'danger';
 import labels from 'danger-plugin-labels';
 import * as reporter from 'danger-plugin-lint-report';
+import todos from 'danger-plugin-todos';
 import yarn from 'danger-plugin-yarn';
 
 import {
@@ -63,4 +64,6 @@ if (danger.github?.pr) {
       ],
     })
   );
+
+  schedule(todos());
 }
