@@ -1,5 +1,6 @@
 {
   "version": "0.0.0",
+  "repository": "TMTecnologia/turborepo-tmtecnologia",
   "private": true,
   "config": {
     "commitizen": {
