@@ -20,7 +20,9 @@
     "@storybook/react": "6.4.22",
     "@vitejs/plugin-react": "1.3.2",
     "babel-loader": "8.2.5",
+    "eslint": "8.21.0",
     "eslint-config-acme": "0.0.0",
+    "prettier": "2.7.1",
     "require-from-string": "2.0.2",
     "serve": "13.0.2",
     "typescript": "4.7.4",
@@ -31,6 +33,8 @@
     "build": "build-storybook --docs",
     "clean": "rm -rf .turbo && rm -rf node_modules",
     "dev": "start-storybook -p 6006",
+    "format": "yarn lint --fix",
+    "lint": "TIMING=1 eslint --no-error-on-unmatched-pattern",
     "preview-storybook": "serve storybook-static"
   }
 }
