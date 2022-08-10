@@ -6,6 +6,11 @@ jobs:
   dangerjs:
     runs-on: ubuntu-latest
     steps:
+      - name: 🏗 Checkout base branch
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.base_ref }}
+
       - name: 🏗 Setup Node
         uses: actions/setup-node@v2
         with:
@@ -13,12 +18,8 @@ jobs:
           cache: yarn
           cache-dependency-path: '**/yarn.lock'
 
-      - name: 🏗 Checkout base branch
-        uses: actions/checkout@v2
-        with:
-          ref: ${{ github.base_ref }}
-
       - name: Record before stats
+        continue-on-error: true
         run: |
           mkdir -p .diff/audit-ci
           yarn install --immutable
@@ -30,6 +31,7 @@ jobs:
           clean: false
 
       - name: Record after stats
+        continue-on-error: true
         run: |
           yarn install --immutable
           yarn dlx -q audit-ci@\^6 --config ./audit-ci.jsonc -o json > .diff/audit-ci/after.json
