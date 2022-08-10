@@ -25,7 +25,7 @@ jobs:
           yarn dlx -q audit-ci@\^6 --config ./audit-ci.jsonc -o json > .diff/audit-ci/before.json
 
       - name: Checkout PR branch
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
         with:
           clean: false
 
