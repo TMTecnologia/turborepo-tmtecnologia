@@ -55,5 +55,9 @@ if (danger.github?.pr) {
     })
   );
 
-  schedule(todos());
+  schedule(
+    todos({
+      repoUrl: 'https://github.com/Quenom117/teste',
+    })
+  );
 }
