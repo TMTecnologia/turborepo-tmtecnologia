@@ -1,4 +1,9 @@
 {
   "*.(js|ts|tsx|md)": "npx eslint --fix",
-  "package.json": ["npm run syncpack:fix:mismatches", "npm run syncpack:fix:format"]
+  "package.json": [
+    "npm run syncpack:fix:mismatches",
+    "npm run syncpack:fix:format",
+    "npm run syncpack:lint:mismatches",
+    "npm run syncpack:lint:semver-ranges"
+  ]
 }
