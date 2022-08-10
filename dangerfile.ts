@@ -1,4 +1,5 @@
 import { danger, message, schedule, warn } from 'danger';
+import labels from 'danger-plugin-labels';
 import * as reporter from 'danger-plugin-lint-report';
 import yarn from 'danger-plugin-yarn';
 
@@ -35,6 +36,15 @@ schedule(
     fileMask: '**/lint-results.xml',
     reportSeverity: true,
     requireLineModification: true,
+  })
+);
+
+schedule(
+  labels({
+    rules: [
+      { match: /WIP/i, label: 'Work In Progress' },
+      { match: /Ready for Review/i, label: 'Ready for Review' },
+    ],
   })
 );
 
