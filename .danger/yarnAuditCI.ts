@@ -62,7 +62,11 @@ export function yarnAuditCI(): void {
     return;
   }
 
-  const diffs = filterDiffs(before, after) as IAuditReport;
+  const diffs = filterDiffs<number>(
+    before,
+    after,
+    (beforeKey, afterKey) => afterKey - beforeKey
+  ) as IAuditReport;
   const saferRepo = Object.values(diffs.vulnerabilities).every(
     (level) => level <= 0
   );
