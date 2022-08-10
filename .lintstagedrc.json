@@ -1,3 +1,4 @@
 {
-  "*.(js|ts|tsx|md)": "npx eslint --fix"
+  "*.(js|ts|tsx|md)": "npx eslint --fix",
+  "package.json": ["npm run syncpack:fix:mismatches", "npm run syncpack:fix:format"]
 }
