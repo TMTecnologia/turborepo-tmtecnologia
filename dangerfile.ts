@@ -1,4 +1,5 @@
-import { danger, message, warn } from 'danger';
+import { danger, message, schedule, warn } from 'danger';
+import * as reporter from 'danger-plugin-lint-report';
 import yarn from 'danger-plugin-yarn';
 
 import {
@@ -28,6 +29,14 @@ if (app.modified && !tests.modified) {
 }
 
 yarn();
+
+schedule(
+  reporter.scan({
+    fileMask: '**/lint-results.xml',
+    reportSeverity: true,
+    requireLineModification: true,
+  })
+);
 
 yarnAuditCI();
 
