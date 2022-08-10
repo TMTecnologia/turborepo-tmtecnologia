@@ -6,6 +6,11 @@
     "GHSA-w5p7-h5w8-2hfq|@storybook/*",
     "GHSA-7p7h-4mm5-852v",
     "GHSA-ww39-953v-wcq6",
-    "GHSA-xvch-5gv4-984h"
+    "GHSA-xvch-5gv4-984h",
+    "GHSA-vh95-rmgr-6w4m",
+    "GHSA-xf5p-87ch-gxw2|danger-plugin-lint-report>*",
+    "GHSA-f4c9-cqv8-9v98|danger-plugin-lint-report>*",
+    "GHSA-5v2h-r2cx-5xgj|danger-plugin-lint-report>*",
+    "GHSA-rrrm-qjm4-v8hf|danger-plugin-lint-report>*"
   ]
 }
