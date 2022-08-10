@@ -34,6 +34,10 @@ jobs:
           yarn install --immutable
           yarn dlx -q audit-ci@\^6 --config ./audit-ci.jsonc -o json > .diff/audit-ci/after.json
 
+      - name: ⚙️ ESLint
+        continue-on-error: true
+        run: yarn lint:report
+
       - name: 🚨 DangerJS
         run: yarn danger ci
         env:
