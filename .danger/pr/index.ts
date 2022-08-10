@@ -38,3 +38,22 @@ export function isPRTooBig(bigPRThreshold: number) {
     warn(`${title} - <i>${idea}</i>`);
   }
 }
+
+/**
+ * Extract all labels from title using
+ */
+export function createOrAddLabelsFromPRTitle(labelPattern: RegExp) {
+  function extractMatchesFromText(text: string, pattern: RegExp): string[] {
+    return Array.from(text.matchAll(pattern)).map((match) => match[0]);
+  }
+
+  const labels = extractMatchesFromText(danger.github.pr.title, labelPattern);
+
+  for (const name of labels) {
+    danger.github.utils.createOrAddLabel({
+      name,
+      color: '#3a2257',
+      description: 'auto generated labels',
+    });
+  }
+}

@@ -4,6 +4,7 @@ import * as reporter from 'danger-plugin-lint-report';
 import yarn from 'danger-plugin-yarn';
 
 import {
+  createOrAddLabelsFromPRTitle,
   doesDescriptionExists,
   doesPRtargetMain,
   enforceLinearHistory,
@@ -59,4 +60,7 @@ if (danger.github?.pr) {
   isDescriptionCorrectlyFormatted();
 
   doesPRtargetMain();
+
+  // extracting labels from inside brackets
+  createOrAddLabelsFromPRTitle(/(?<=\[)(.*?)(?=\])/g);
 }
