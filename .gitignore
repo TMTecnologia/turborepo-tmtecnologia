@@ -10,6 +10,7 @@ dist-ssr
 server/dist
 public/dist
 storybook-static/
+lint-results.xml
 
 # dependencies
 node_modules

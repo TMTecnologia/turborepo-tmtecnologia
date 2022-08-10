@@ -23,7 +23,8 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
     "dev": "tsup src/index.tsx --format esm,cjs --watch --dts --external react",
     "format": "TIMING=1 eslint src/**/*.ts* --fix",
-    "lint": "TIMING=1 eslint src/**/*.ts*"
+    "lint": "TIMING=1 eslint src/**/*.ts*",
+    "lint:report": "yarn lint --output-file lint-results.xml --format checkstyle --no-color"
   },
   "sideEffects": false,
   "types": "./dist/index.d.ts"

@@ -21,6 +21,9 @@
     "typescript": "4.7.4"
   },
   "scripts": {
+    "format": "yarn lint --fix",
+    "lint": "TIMING=1 eslint . --ext=ts,js,jsx,tsx,md",
+    "lint:report": "yarn lint --output-file lint-results.xml --format checkstyle --no-color",
     "test": "cucumber-js",
     "test:all": "cucumber-js e2e/features/**/*.feature",
     "test:api": "DEBUG=pw:api cucumber-js",

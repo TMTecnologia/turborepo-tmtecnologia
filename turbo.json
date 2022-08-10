@@ -18,6 +18,9 @@
     "lint": {
       "outputs": []
     },
+    "lint:report": {
+      "outputs": []
+    },
     "format": {
       "outputs": []
     },

@@ -54,6 +54,7 @@
     "format:markdown": "eslint . --quiet --fix --ext md",
     "format:turbo": "turbo run format",
     "lint": "turbo run lint",
+    "lint:report": "turbo run lint:report",
     "postinstall": "husky install",
     "postpublish": "pinst --enable",
     "prepublishOnly": "pinst --disable",

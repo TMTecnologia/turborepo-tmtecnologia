@@ -47,6 +47,7 @@
     "i18n:api": "yarn i18next-typescript generate",
     "i18n:api:w": "yarn i18next-typescript watch",
     "lint": "next lint",
+    "lint:report": "TIMING=1 eslint . --ext=ts,js,tsx,jsx,md --output-file lint-results.xml --format checkstyle --no-color",
     "start": "next start"
   }
 }
