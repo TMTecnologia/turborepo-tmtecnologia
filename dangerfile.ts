@@ -32,23 +32,6 @@ if (app.modified && !tests.modified) {
 
 yarn();
 
-schedule(
-  reporter.scan({
-    fileMask: '**/lint-results.xml',
-    reportSeverity: true,
-    requireLineModification: true,
-  })
-);
-
-schedule(
-  labels({
-    rules: [
-      { match: /WIP/i, label: 'Work In Progress' },
-      { match: /Ready for Review/i, label: 'Ready for Review' },
-    ],
-  })
-);
-
 yarnAuditCI();
 
 enforceLinearHistory();
@@ -63,4 +46,21 @@ if (danger.github?.pr) {
 
   // extracting labels from inside brackets
   createOrAddLabelsFromPRTitle(/(?<=\[)(.*?)(?=\])/g);
+
+  schedule(
+    reporter.scan({
+      fileMask: '**/lint-results.xml',
+      reportSeverity: true,
+      requireLineModification: true,
+    })
+  );
+
+  schedule(
+    labels({
+      rules: [
+        { match: /WIP/i, label: 'Work In Progress' },
+        { match: /Ready for Review/i, label: 'Ready for Review' },
+      ],
+    })
+  );
 }
