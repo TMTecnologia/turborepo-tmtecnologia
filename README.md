@@ -48,6 +48,12 @@ Clone the design system example locally or [from GitHub](https://github.com/TMTe
 >>> yarn dev
 ```
 
+### Troubleshooting
+
+In case the commit hooks do not run, try using `scripts/husky-chmod`
+
+A one liner that modifies the files inside `.husky`, adding the executable permission
+
 ### Useful Commands
 
 - `yarn build` - Build all packages and apps
