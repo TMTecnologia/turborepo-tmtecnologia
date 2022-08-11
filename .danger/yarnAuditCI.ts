@@ -51,10 +51,10 @@ export function yarnAuditCI(): void {
 
   try {
     before = JSON.parse(
-      fs.readFileSync(`${__dirname}/.diff/audit-ci/before.json`, 'utf8')
+      fs.readFileSync(`${__dirname}/../.diff/audit-ci/before.json`, 'utf8')
     ) as IAuditReport;
     after = JSON.parse(
-      fs.readFileSync(`${__dirname}/.diff/audit-ci/after.json`, 'utf8')
+      fs.readFileSync(`${__dirname}/../.diff/audit-ci/after.json`, 'utf8')
     ) as IAuditReport;
   } catch (error) {
     // eslint-disable-next-line no-console
