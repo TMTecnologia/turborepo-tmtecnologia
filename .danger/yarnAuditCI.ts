@@ -59,6 +59,8 @@ export function yarnAuditCI(): void {
   } catch (error) {
     // eslint-disable-next-line no-console
     console.log('yarnAuditCI: error parsing files, skipping rule');
+    // eslint-disable-next-line no-console
+    console.log(error);
     return;
   }
 
