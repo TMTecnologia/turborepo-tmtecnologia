@@ -1,60 +1,137 @@
-/* eslint-disable */
 // Source: https://github.com/withspectrum/danger-plugin-labels/blob/master/src/index.ts
-// Provides dev-time type structures for  `danger` - doesn't affect runtime.
-import { DangerDSLType } from "danger/distribution/dsl/DangerDSL"
-declare var danger: DangerDSLType
-export declare function message(message: string): void
-export declare function warn(message: string): void
-export declare function fail(message: string): void
-export declare function markdown(message: string): void
+import { DangerDSLType } from 'danger/distribution/dsl/DangerDSL';
 
-export interface StringMap {
-  [key: string]: string
+declare let danger: DangerDSLType;
+
+interface Rule {
+  match: RegExp;
+  label: string;
 }
 
-export interface Rule {
-  match: RegExp
-  label: string
+type RuleInput = string | Rule;
+
+interface Options {
+  rules: RuleInput[];
+  validate?: (labels: string[]) => Promise<boolean> | boolean;
 }
 
-export type RuleInput = string | Rule
-
-export interface Options {
-  rules: RuleInput[]
-  validate?: (labels: string[]) => Promise<boolean> | boolean
+interface IGitHub {
+  issue: {
+    body?: string;
+    number?: number;
+  };
+  repository?: {
+    name: string;
+    owner: {
+      login: string;
+    };
+  };
 }
 
-const CHECKBOXES = /^[\t ]*-[\t ]*\[x\][\t ]*(.+?)$/gim
-const UNCHECKEDBOXES = /^[\t ]*-[\t ]*\[[\t ]*\][\t ]*(.+?)$/gim
-
+/**
+ * Extract checked text from markdown checkbox
+ */
 const getCheckedBoxes = (text: string): string[] => {
+  const CHECKBOXES = /^[\t ]*-[\t ]*\[x\][\t ]*(.+?)$/gim;
+
   // Full Text => ["- [x] Checked", "- [x] Also Checked"]
-  const rawMatches = text.match(CHECKBOXES)
+  const rawMatches = text.match(CHECKBOXES);
   if (!rawMatches || rawMatches.length === 0) {
-    return []
+    return [];
   }
 
   // Extract checked text from markdown checkbox
   // "- [x] Checked" => "Checked"
   return rawMatches
-    .map(result => new RegExp(CHECKBOXES.source, "mi").exec(result))
+    .map((result) => new RegExp(CHECKBOXES.source, 'mi').exec(result))
     .filter(Boolean)
-    .map(res => res && res[1]) as string[]
-}
+    .map((res) => res && res[1]) as string[];
+};
 
+/**
+ * Extract checked text from markdown checkbox
+ */
 const getUncheckedBoxes = (text: string): string[] => {
+  const UNCHECKEDBOXES = /^[\t ]*-[\t ]*\[[\t ]*\][\t ]*(.+?)$/gim;
+
   // Full Text => ["- [ ] Unchecked", "- [  ] Also Unchecked"]
-  const rawMatches = text.match(UNCHECKEDBOXES)
+  const rawMatches = text.match(UNCHECKEDBOXES);
   if (!rawMatches || rawMatches.length === 0) {
-    return []
+    return [];
   }
 
-  // Extract checked text from markdown checkbox
+  // Extract unchecked text from markdown checkbox
   // "- [ ] Unchecked" => "Unchecked"
   return rawMatches
-    .map(result => new RegExp(UNCHECKEDBOXES.source, "mi").exec(result))
+    .map((result) => new RegExp(UNCHECKEDBOXES.source, 'mi').exec(result))
     .filter(Boolean)
-    .map(res => res && res[1]) as string[]
+    .map((res) => res && res[1]) as string[];
+};
+
+/**
+ * Retrieves body and issue information, from PR and Issues alike
+ */
+function getIssue() {
+  // PR
+  if (danger.github.thisPR) {
+    const pr = danger.github.thisPR;
+    return {
+      body: danger.github.pr.body,
+      issue: { issue_number: pr.number, repo: pr.repo, owner: pr.owner },
+    };
+  }
+  // Issue
+  const gh = danger.github as IGitHub;
+  return {
+    body: gh.issue.body ?? '',
+    issue: {
+      issue_number: gh.issue.number ?? 0,
+      repo: gh.repository?.name ?? '',
+      owner: gh.repository?.owner.login ?? '',
+    },
+  };
+}
+
+/**
+ * Internal method to filter string[] using rules[], mapping to labels
+ */
+function filterCheckboxesByRules(checkboxes: string[], rules: Rule[]) {
+  return checkboxes
+    .map((label) => {
+      const rule = rules.find((r) => r.match.test(label));
+      return rule?.label;
+    })
+    .filter(Boolean) as string[];
+}
+
+/**
+ * Filter issue body checked labels, extracted from checkboxes, using rules
+ */
+function getMatchingLabels(body: string, rules: Rule[]) {
+  return filterCheckboxesByRules(getCheckedBoxes(body), rules);
+}
+
+/**
+ * Filter issue body unchecked labels, extracted from checkboxes, using rules
+ */
+function getUncheckedLabels(body: string, rules: Rule[]) {
+  return filterCheckboxesByRules(getUncheckedBoxes(body), rules);
+}
+
+/**
+ * Create Rules[] from RuleInput[]
+ */
+function parseRuleInput(rules: RuleInput[]) {
+  return rules.map((rule) => {
+    if (typeof rule !== 'string') {
+      return rule;
+    }
+
+    return {
+      match: new RegExp(rule, 'i'),
+      label: rule,
+    };
+  }) as Rule[];
 }
 
 /**
@@ -62,70 +139,35 @@ const getUncheckedBoxes = (text: string): string[] => {
  */
 export async function labelsPlugin(options: Options) {
   if (!options || !options.rules) {
-    throw new Error('[danger-plugin-labels] Please specify the "rules" option.')
-  }
-  const { rules: input, validate } = options
-
-  const rules = input.map(rule => {
-    if (typeof rule !== "string") {
-      return rule
-    }
-
-    return {
-      match: new RegExp(rule, "i"),
-      label: rule,
-    }
-  }) as Rule[]
-
-  const api = danger.github.api
-  let issue = { issue_number: 0, repo: "", owner: "" }
-  const existingLabels = danger.github.issue.labels.map(({ name }) => name)
-  let text = ""
-  // PR
-  if (danger.github.thisPR) {
-    const pr = danger.github.thisPR
-    text = danger.github.pr.body
-    issue = { issue_number: pr.number, repo: pr.repo, owner: pr.owner }
-    // Issue
-  } else {
-    const gh = danger.github as any
-    text = gh.issue.body
-    issue = { issue_number: gh.issue.number, repo: gh.repository.name, owner: gh.repository.owner.login }
+    throw new Error(
+      '[danger-plugin-labels] Please specify the "rules" option.'
+    );
   }
 
-  const matchingLabels = getCheckedBoxes(text)
-    .map(label => {
-      const rule = rules.find(r => r.match.test(label))
-      if (!rule) {
-        return null
-      }
-      return rule.label
-    })
-    .filter(Boolean) as string[]
+  const { body, issue } = getIssue();
 
-  const uncheckedLabels = getUncheckedBoxes(text).reduce((labels, label) => {
-    const rule = rules.find(r => r.match.test(label))
-    if (!rule) {
-      return labels
-    }
-    return [...labels, label]
-  }, [])
+  const rules = parseRuleInput(options.rules);
+  const matchingLabels = getMatchingLabels(body, rules);
+  const uncheckedLabels = getUncheckedLabels(body, rules);
 
   if (matchingLabels.length === 0 && uncheckedLabels.length === 0) {
-    return
+    return;
   }
 
-  if (validate && (await validate(matchingLabels)) === false) {
-    return
+  if (options.validate && (await options.validate(matchingLabels)) === false) {
+    return;
   }
 
-  const replacementLabels = [
-    ...matchingLabels,
-    ...existingLabels.filter(label => uncheckedLabels.indexOf(label) === -1),
-  ].filter((item, pos, ar) => ar.indexOf(item) === pos) as string[]
+  const existingLabels = danger.github.issue.labels.map(({ name }) => name);
+  const replacementLabels = Array.from(
+    new Set([
+      ...matchingLabels,
+      ...existingLabels.filter((label) => !uncheckedLabels.includes(label)),
+    ])
+  ) as string[];
 
-  await api.issues.setLabels({
+  await danger.github.api.issues.setLabels({
     ...issue,
     labels: replacementLabels,
-  })
+  });
 }
