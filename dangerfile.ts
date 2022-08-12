@@ -10,6 +10,7 @@ import {
   enforceLinearHistory,
   isDescriptionCorrectlyFormatted,
   isPRTooBig,
+  labels,
   yarnAuditCI,
 } from './.danger';
 
@@ -37,6 +38,15 @@ if (danger.github?.pr) {
 
   // extracting labels from inside brackets
   createOrAddLabelsFromPRTitle(/(?<=\[)(.*?)(?=\])/g);
+
+  schedule(
+    labels({
+      rules: [
+        { match: /WIP/i, label: 'Work In Progress' },
+        { match: /Ready for Review/i, label: 'Ready for Review' },
+      ],
+    })
+  );
 
   schedule(
     reporter.scan({
