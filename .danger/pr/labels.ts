@@ -124,7 +124,7 @@ export async function labelsPlugin(options: Options) {
     ...existingLabels.filter(label => uncheckedLabels.indexOf(label) === -1),
   ].filter((item, pos, ar) => ar.indexOf(item) === pos) as string[]
 
-  await api.issues.replaceLabels({
+  await api.issues.setLabels({
     ...issue,
     labels: replacementLabels,
   })
