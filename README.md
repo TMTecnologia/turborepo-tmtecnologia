@@ -50,9 +50,9 @@ Clone the design system example locally or [from GitHub](https://github.com/TMTe
 
 ### Troubleshooting
 
-In case the commit hooks do not run, try using [`scripts/husky-chmod`](./scripts/husky-chmod)
+- In case the commit hooks do not run, try using [`scripts/husky-chmod`](./scripts/husky-chmod): one liner that modifies the files inside `.husky`, adding the executable permission
 
-A one liner that modifies the files inside `.husky`, adding the executable permission
+- In case of the gitmoji list is outdated, try using [`scripts/fetch-gitmojis`](./scripts/fetch-gitmojis): node script to fetch [gitmoji.dev](gitmoji.dev) gitmoji list from github repo
 
 ### Useful Commands
 

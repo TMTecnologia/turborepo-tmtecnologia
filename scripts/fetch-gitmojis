@@ -1,0 +1,27 @@
+#!/usr/bin/env node
+
+const https = require('https');
+const fs = require('fs');
+
+const url = "https://raw.githubusercontent.com/carloscuesta/gitmoji/master/src/data/gitmojis.json";
+
+https.get(url,(res) => {
+    let body = "";
+
+    res.on("data", (chunk) => {
+        body += chunk;
+    });
+
+    res.on("end", () => {
+        try {
+            const json = JSON.parse(body);
+            const emojiArray = json.gitmojis.map((e) => e.emoji);
+            fs.writeFileSync("gitmojis.json", JSON.stringify(emojiArray));
+        } catch (error) {
+            console.error(error.message);
+        };
+    });
+
+}).on("error", (error) => {
+    console.error(error.message);
+});
