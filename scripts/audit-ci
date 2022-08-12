@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+yarn dlx -q audit-ci@^6 --config ./audit-ci.jsonc

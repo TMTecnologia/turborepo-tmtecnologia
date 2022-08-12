@@ -50,7 +50,7 @@ Clone the design system example locally or [from GitHub](https://github.com/TMTe
 
 ### Troubleshooting
 
-In case the commit hooks do not run, try using `scripts/husky-chmod`
+In case the commit hooks do not run, try using [`scripts/husky-chmod`](./scripts/husky-chmod)
 
 A one liner that modifies the files inside `.husky`, adding the executable permission
 
@@ -122,3 +122,7 @@ To publish packages to a public npm organization scope, **add** the following to
 +  "access": "public"
 + },
 ```
+
+### Dependencies vulnerabilities
+
+This repo contains a configuration for [`audit-ci`](https://www.npmjs.com/package/audit-ci) tool and a one liner script [`scripts/audit-ci`](./scripts/audit-ci); feel free to validate your dependencies security locally
