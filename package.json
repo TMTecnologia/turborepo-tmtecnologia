@@ -43,6 +43,9 @@
     "syncpack": "8.2.4",
     "turbo": "latest"
   },
+  "engines": {
+    "node": ">= 16.16.0"
+  },
   "packageManager": "yarn@3.2.1",
   "scripts": {
     "build": "turbo run build",
