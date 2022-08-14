@@ -25,7 +25,7 @@
     "lint": "TIMING=1 eslint . --ext=ts,js,jsx,tsx,md",
     "lint:report": "yarn lint --output-file lint-results.xml --format checkstyle --no-color",
     "test": "cucumber-js",
-    "test:all": "cucumber-js e2e/features/**/*.feature",
+    "test:all": "cucumber-js src/features/**/*.feature",
     "test:api": "DEBUG=pw:api cucumber-js",
     "test:debug": "PWDEBUG=1 DEBUG=pw:api cucumber-js",
     "test:dry": "yarn test:all --dry-run",
