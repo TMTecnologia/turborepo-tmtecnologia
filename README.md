@@ -123,6 +123,39 @@ To publish packages to a public npm organization scope, **add** the following to
 + },
 ```
 
+## Vercel Deploy
+
+- Create New Project
+- Select Root Directory as [`apps/client`](./apps/client/), or other package you're trying to deploy
+- Override `Build and Output Settings > BUILD COMMAND`
+
+```bash
+cd ../.. && yarn dlx turbo run build --scope=client --include-dependencies --no-deps && yarn workspace @acme/db prisma generate
+```
+
+- Create `Environment Variables`, check `.env` and [`apps/client/.../env-schema.mjs`](apps/client/src/server/env-schema.mjs) for info
+
+Read more @ [vercel.com/docs](https://vercel.com/docs)
+
+### Turbo Remote Caching
+
+- Create Vercel Team
+- `yarn dlx turbo login`
+- `yarn dlx turbo link`
+
+Read more @ [turborepo.org](https://turborepo.org/docs/core-concepts/remote-caching)
+
+## Ignoring build steps
+
+- Go to `Project Dashboard > Settings > Git > Ignored Build Step`
+- **Experimental** Add command
+
+```bash
+npx turbo-ignore
+```
+
+See more detailed explanation @ [vercel.com/docs](https://vercel.com/docs/concepts/projects/overview#ignored-build-step) and @ [youtube.com/c/VercelHQ](https://youtu.be/LB-QPnvzsEM?t=3297)
+
 ### Dependencies vulnerabilities
 
 This repo contains a configuration for [`audit-ci`](https://www.npmjs.com/package/audit-ci) tool and a one liner script [`scripts/audit-ci`](./scripts/audit-ci); feel free to validate your dependencies security locally
