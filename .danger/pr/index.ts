@@ -5,7 +5,7 @@ declare function warn(message: string): void;
 declare function fail(message: string): void;
 
 export * from './description';
-export { labelsPlugin as labels } from './labels';
+export { isWIP, labelsPlugin as labels } from './labels';
 
 /**
  * Fails if the PR targets anything other than `main` or `-stable`.

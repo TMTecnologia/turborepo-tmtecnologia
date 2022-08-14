@@ -135,6 +135,27 @@ function parseRuleInput(rules: RuleInput[]) {
 }
 
 /**
+ * Whether the issue contains wording indicating a work in progress
+ */
+export function isWIP() {
+  const wipRegExp = /(WIP|work in progress)/i;
+
+  const hasLabelWIP = danger.github.issue.labels
+    .map(({ name }) => name)
+    .some((label) => label.match(wipRegExp));
+
+  if (hasLabelWIP) return true;
+
+  const hasTitleWIP = danger.github.pr.title.match(wipRegExp) !== null;
+
+  if (hasTitleWIP) return true;
+
+  const hasCheckedWIP = getCheckedBoxes(getIssue().body).includes('WIP');
+
+  return hasCheckedWIP;
+}
+
+/**
  * Let any user add a certain set of labels to your issues and pull requests
  */
 export async function labelsPlugin(options: Options) {

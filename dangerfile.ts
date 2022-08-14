@@ -10,6 +10,7 @@ import {
   enforceLinearHistory,
   isDescriptionCorrectlyFormatted,
   isPRTooBig,
+  isWIP,
   labels,
   yarnAuditCI,
 } from './.danger';
@@ -38,6 +39,14 @@ if (danger.github?.pr) {
 
   // extracting labels from inside brackets
   createOrAddLabelsFromPRTitle(/(?<=\[)(.*?)(?=\])/g);
+
+  if (isWIP()) {
+    const title = ':construction: Work In Progress label found';
+    const idea =
+      'Try using draft pull requests instead. ' +
+      'Read more @ [GitHub docs](https://docs.github.com/pt/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#draft-pull-requests)';
+    message(`${title} - <i>${idea}</i>`);
+  }
 
   schedule(
     labels({
