@@ -1,15 +1,13 @@
-## Summary
-This pull request fixes #{issue number}
+## Resumo
+Este pull request corrige #{número da issue}
 
-## Test Plan? 
-A Test Plan lets us know how these changes were tested
+## Plano de Teste
+Um Plano de Teste nos permite saber como essas alterações foram testadas
 
-## Need help?
-Describe where and how can we be of assistance to you
+## Precisa de ajuda?
+Descreva onde e como podemos ajudá-lo
 
 ## Status
 
-**check one**
-
-- [ ] WIP
-- [ ] Ready for Review
+- [ ] Em construção
+- [ ] Pronto para revisão

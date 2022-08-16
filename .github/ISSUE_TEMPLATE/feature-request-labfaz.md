@@ -1,20 +1,20 @@
 ---
-name: Feature Request LABFAZ
-about: Suggest an idea for this project
+name: Solicitação de recurso LABFAZ
+about: Sugira uma ideia para este projeto
 title: ''
 labels: ''
 assignees: ''
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+**Sua solicitação de recurso está relacionada a um problema? Por favor, descreva.**
+Uma descrição clara e concisa do que é o problema. Ex. Eu sempre fico frustrado quando [...]
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+**Descreva a solução desejada**
+Uma descrição clara e concisa do que você quer que aconteça.
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+**Descreva as alternativas que você considerou**
+Uma descrição clara e concisa de quaisquer soluções ou recursos alternativos que você considerou.
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+**Contexto adicional**
+Adicione qualquer outro contexto ou capturas de tela sobre a solicitação de recurso aqui.
