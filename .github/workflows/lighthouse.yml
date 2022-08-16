@@ -9,6 +9,7 @@ jobs:
       - name: Create report directory
         run: mkdir -p ${{ github.workspace }}/tmp/artifacts
 
+      - run: sleep 180
       - name: Waiting for 200 from the Vercel Preview
         uses: patrickedqvist/wait-for-vercel-preview@v1.2.0
         id: vercelPreview
