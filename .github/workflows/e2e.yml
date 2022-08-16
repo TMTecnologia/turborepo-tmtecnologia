@@ -17,7 +17,9 @@ jobs:
           cache-dependency-path: '**/yarn.lock'
 
       - name: 📦 Install dependencies
-        run: yarn install --immutable
+        run: |
+          yarn workspaces focus @acme/e2e
+          npx playwright install --with-deps
 
       - name: Waiting for 200 from the Vercel Preview
         uses: patrickedqvist/wait-for-vercel-preview@v1.2.0
@@ -26,6 +28,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 🥒🎭 Run E2E Tests
-        run: yarn workspace @acme/client test:all
+        run: yarn workspace @acme/e2e test:all
         env:
           BROWSER_URL: ${{ steps.vercelPreview.outputs.url }}
