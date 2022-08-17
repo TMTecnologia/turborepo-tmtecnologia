@@ -19,7 +19,7 @@
     "eslint-plugin-write-good-comments": "0.1.4"
   },
   "devDependencies": {
-    "eslint": "8.21.0",
+    "eslint": "8.22.0",
     "prettier": "2.7.1"
   },
   "main": "index.js"

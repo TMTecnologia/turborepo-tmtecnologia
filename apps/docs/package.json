@@ -20,7 +20,7 @@
     "@storybook/react": "6.5.10",
     "@vitejs/plugin-react": "2.0.1",
     "babel-loader": "8.2.5",
-    "eslint": "8.21.0",
+    "eslint": "8.22.0",
     "eslint-config-acme": "0.0.0",
     "prettier": "2.7.1",
     "require-from-string": "2.0.2",
