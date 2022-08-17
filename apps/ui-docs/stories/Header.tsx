@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 
-import { Button } from './Button';
+import { Button } from '@acme/core';
 
 import './header.css';
 
