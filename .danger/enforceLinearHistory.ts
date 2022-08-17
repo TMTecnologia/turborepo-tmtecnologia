@@ -15,7 +15,7 @@ export function enforceLinearHistory() {
    * https://github.com/amsourav/danger-plugin-linear-history/blob/master/src/index.ts
    */
   const hasMergeCommit = danger.git.commits.some(
-    (commit) => commit.parents?.length > 1
+    (commit) => (commit.parents?.length ?? 0) > 1
   );
 
   if (hasMergeCommit) {
