@@ -46,12 +46,15 @@ __metadata:
     daisyui: 2.24.0
     eslint: 8.22.0
     eslint-config-acme: 0.0.0
+    eslint-plugin-tailwindcss: 3.6.0
     i18next: 19.7.0
     i18next-typescript: 0.1.0
     next: 12.2.5
     next-auth: 4.10.3
     next-i18next: 11.3.0
     postcss: 8.4.14
+    prettier: 2.7.1
+    prettier-plugin-tailwindcss: 0.1.13
     react: 18.2.0
     react-dom: 18.2.0
     react-hook-form: 7.33.1
@@ -11351,6 +11354,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-plugin-tailwindcss@npm:3.6.0":
+  version: 3.6.0
+  resolution: "eslint-plugin-tailwindcss@npm:3.6.0"
+  dependencies:
+    fast-glob: ^3.2.5
+    postcss: ^8.4.4
+    tailwindcss: ^3.1.3
+  checksum: 151f40f0fcecda8a59a57398f65584869ba07cb8a1c959ef3fe4bc204648f4d15c65b686ccac56785e8e168c7fca2f7434745ea2f212c0348922f34b004e3bc3
+  languageName: node
+  linkType: hard
+
 "eslint-plugin-write-good-comments@npm:0.1.4":
   version: 0.1.4
   resolution: "eslint-plugin-write-good-comments@npm:0.1.4"
@@ -11900,7 +11914,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-glob@npm:^3.2.11, fast-glob@npm:^3.2.9":
+"fast-glob@npm:^3.2.11, fast-glob@npm:^3.2.5, fast-glob@npm:^3.2.9":
   version: 3.2.11
   resolution: "fast-glob@npm:3.2.11"
   dependencies:
@@ -18041,7 +18055,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.4.16":
+"postcss@npm:^8.4.16, postcss@npm:^8.4.4":
   version: 8.4.16
   resolution: "postcss@npm:8.4.16"
   dependencies:
@@ -18102,6 +18116,15 @@ __metadata:
   dependencies:
     fast-diff: ^1.1.2
   checksum: 00ce8011cf6430158d27f9c92cfea0a7699405633f7f1d4a45f07e21bf78e99895911cbcdc3853db3a824201a7c745bd49bfea8abd5fb9883e765a90f74f8392
+  languageName: node
+  linkType: hard
+
+"prettier-plugin-tailwindcss@npm:0.1.13":
+  version: 0.1.13
+  resolution: "prettier-plugin-tailwindcss@npm:0.1.13"
+  peerDependencies:
+    prettier: ">=2.2.0"
+  checksum: 1b9000686e661be81de7d36d514c5ee34a98b11639b538bce8dd3a482c073c0148feb9d54b526babaede681d1c5ecb318ad97f38e8d71dd5cc26c33dfcaf8344
   languageName: node
   linkType: hard
 
@@ -20922,7 +20945,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:^3":
+"tailwindcss@npm:^3, tailwindcss@npm:^3.1.3":
   version: 3.1.8
   resolution: "tailwindcss@npm:3.1.8"
   dependencies:
