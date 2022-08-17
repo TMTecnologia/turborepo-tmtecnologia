@@ -22271,6 +22271,7 @@ turbo@latest:
   version: 0.0.0-use.local
   resolution: "ui-docs@workspace:apps/ui-docs"
   dependencies:
+    "@acme/core": 0.0.0
     "@babel/core": 7.18.10
     "@mdx-js/react": 1.6.22
     "@storybook/addon-actions": 6.5.10
