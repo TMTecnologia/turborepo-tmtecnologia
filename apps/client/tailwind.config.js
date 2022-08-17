@@ -9,6 +9,7 @@ module.exports = {
     extend: {},
   },
   plugins: [
+    require('daisyui'),
     plugin(function (helpers) {
       // variants that help styling Radix-UI components
       dataStateVariant('open', helpers);
