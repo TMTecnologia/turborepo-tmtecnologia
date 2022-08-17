@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as Checkbox from '@radix-ui/react-checkbox';
-import cntl from 'cntl';
+import { clsx } from 'clsx';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useTranslation } from 'next-i18next';
@@ -53,7 +53,7 @@ type TechnologyCardProps = {
   documentation: string;
 };
 
-const mainCN = cntl`
+const mainCN = clsx(`
   container
   mx-auto
   flex
@@ -62,7 +62,7 @@ const mainCN = cntl`
   justify-center
   h-screen
   p-4
-`;
+`);
 
 const Home: NextPage = () => {
   const hello = trpc.useQuery(['example.hello', { text: 'tRPC' }]);
