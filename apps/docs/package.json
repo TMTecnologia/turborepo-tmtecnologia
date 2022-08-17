@@ -34,7 +34,7 @@
     "clean": "rm -rf node_modules",
     "dev": "start-storybook -p 6006",
     "format": "yarn lint --fix",
-    "lint": "TIMING=1 eslint --no-error-on-unmatched-pattern . --ext=ts,js,tsx,jsx,md",
+    "lint": "TIMING=1 eslint --no-error-on-unmatched-pattern . --ext=ts,tsx,md",
     "lint:report": "yarn lint --output-file lint-results.xml --format checkstyle --no-color",
     "preview-storybook": "serve storybook-static"
   }
