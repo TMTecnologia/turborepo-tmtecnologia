@@ -6,7 +6,15 @@ export function filterDiffs<T>(
   after,
   callback: (beforeKey, afterKey) => T = (_, afterKey) => afterKey
 ) {
-  // Source: https://stackoverflow.com/questions/8431651/getting-a-diff-of-two-json-objects#answer-8432188
+  /*!
+   * Original code by Gabriel Reitz Giannattasio from StackOverflow
+   *
+   * Attribution-ShareAlike 4.0 International Licensed, Copyright (c) 2019 Gabriel Reitz Giannattasio, see https://creativecommons.org/licenses/by-sa/4.0/ for details
+   *
+   * Credits to the Gabriel Gartz team:
+   * https://stackoverflow.com/questions/8431651/getting-a-diff-of-two-json-objects#answer-8432188
+   * https://stackoverflow.com/users/583049/gabriel-gartz
+   */
   const result = {};
   let key;
   for (key in before) {

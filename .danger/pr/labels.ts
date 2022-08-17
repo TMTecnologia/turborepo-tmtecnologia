@@ -1,4 +1,10 @@
-// Source: https://github.com/withspectrum/danger-plugin-labels/blob/master/src/index.ts
+/*!
+ * Original code by Max Stoiber
+ * MIT Licensed, Copyright (c) 2018 Max Stoiber, see LICENSE.md for details
+ *
+ * Credits to the Spectrum team:
+ * https://github.com/withspectrum/danger-plugin-labels/blob/master/src/index.ts
+ */
 import { DangerDSLType } from 'danger/distribution/dsl/DangerDSL';
 
 declare let danger: DangerDSLType;

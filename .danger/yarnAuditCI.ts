@@ -23,7 +23,13 @@ interface IAuditReport {
  * Formats audit-ci json reports to string
  */
 function prettyPrintAuditReport(report: IAuditReport): string {
-  // Source: https://github.com/revathskumar/danger-plugin-npm-audit
+  /*!
+   * Original code by Revath S Kumar
+   * MIT Licensed, Copyright (c) 2019 Revath S Kumar, see LICENSE.md for details
+   *
+   * Credits to the Danger Plugin NPM Audit team:
+   * https://github.com/revathskumar/danger-plugin-npm-audit/blob/master/index.js
+   */
   const { vulnerabilities, totalDependencies } = report;
   const totalVulnerabilities = Object.values(vulnerabilities)
     .filter((level) => level > 0)

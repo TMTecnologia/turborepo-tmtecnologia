@@ -1,6 +1,18 @@
-// Source: https://github.com/patrick-fu/gitmoji_commitlint_guide
+/*!
+ * Original code by Patrick Fu
+ * Copyright (c) 2021 Patrick Fu, see LICENSE.md for details
+ *
+ * Credits to the Gitmoji Commitlint Guide author:
+ * https://github.com/patrick-fu/gitmoji_commitlint_guide
+ */
 
-// Source: https://github.com/carloscuesta/gitmoji/blob/master/src/data/gitmojis.json
+/*!
+ * Original code by Carlos Cuesta
+ * MIT Licensed, Copyright (c) 2016-2022 Carlos Cuesta, see LICENSE.md for details
+ *
+ * Credits to the Gitmoji team:
+ * https://github.com/carloscuesta/gitmoji/blob/master/src/data/gitmojis.json
+ */
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const gitmojis = require('./gitmojis.json');
 
