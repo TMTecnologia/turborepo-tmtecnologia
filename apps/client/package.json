@@ -47,6 +47,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
+    "format": "yarn lint --fix",
     "i18n:api": "yarn i18next-typescript generate",
     "i18n:api:w": "yarn i18next-typescript watch",
     "lint": "next lint",
