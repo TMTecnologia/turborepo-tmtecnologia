@@ -36,6 +36,5 @@
     "lint": "TIMING=1 eslint --no-error-on-unmatched-pattern . --ext=ts,js,tsx,jsx,md",
     "lint:report": "yarn lint --output-file lint-results.xml --format checkstyle --no-color",
     "preview-storybook": "serve storybook-static"
-  },
-  "type": "module"
+  }
 }
