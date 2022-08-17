@@ -110,6 +110,7 @@ const Home: NextPage = () => {
           {hello.data ? <p>{hello.data.greeting}</p> : <p>Loading..</p>}
         </div>
         <Button label="@acme/core/Button" />
+        <button className="btn">DaisyUI</button>
         <Form />
       </main>
     </>
