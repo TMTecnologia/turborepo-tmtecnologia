@@ -1,2 +1,4 @@
 dist/
 !.danger
+!.storybook
+storybook-static
