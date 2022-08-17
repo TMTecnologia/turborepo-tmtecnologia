@@ -8,7 +8,7 @@ Yarn v3 starter monorepo, featuring:
 - 📖 [Storybook](https://storybook.js.org/) — UI component environment powered by Vite
 - 🔼 [Next.js](https://nextjs.org/) - Flexible React framework focused on web applications
 - 🔒️ [NextAuth.js](https://next-auth.js.org/) - Authentication for Next.js
-- 💄 [Tailwind CSS](https://tailwindcss.com/) + [🩻](https://www.radix-ui.com/) - CSS framework and Primitive library
+- 💄 [Tailwind CSS](https://tailwindcss.com/) + [🩻](https://daisyui.com/) - CSS framework and Primitive library
 - 📋 [React Hook Form](https://react-hook-form.com/) - Performant, flexible and extensible forms with easy-to-use validation
 - 💎 [Zod](https://zod.dev/) - TypeScript-first schema validation with static type inference
 - 🧑‍💻 [tRPC](https://trpc.io/) - End-to-end typesafe APIs powered by React Query
