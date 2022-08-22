@@ -41,6 +41,9 @@ module.exports = {
   },
   prompt: {
     alias: { fd: 'docs: fix typos' },
+    formatMessageCB: ({ emoji, scope, subject }) => {
+      return scope ? `${emoji} (${scope}): ${subject}` : `${emoji} ${subject}`;
+    },
     messages: {
       type: "Select the type of change that you're committing:",
       scope: 'Denote the SCOPE of this change (optional):',
