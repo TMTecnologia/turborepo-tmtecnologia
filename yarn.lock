@@ -9532,6 +9532,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cz-git@npm:1.3.11":
+  version: 1.3.11
+  resolution: "cz-git@npm:1.3.11"
+  checksum: 3faf3492fd535072fb4662ce062d5cc9ca386f313fcc61956ca5311033cf8ad04533b92b328b7e0834436eda94805ef4d0d5ddc6adac5eae8660cc7ff3e1a6fe
+  languageName: node
+  linkType: hard
+
 "d@npm:1, d@npm:^1.0.1":
   version: 1.0.1
   resolution: "d@npm:1.0.1"
@@ -19535,6 +19542,7 @@ __metadata:
     commitizen: 4.2.4
     commitizen-emoji: 1.0.5
     commitlint: 17.0.3
+    cz-git: 1.3.11
     danger: 11.1.1
     danger-plugin-lint-report: 1.7.0
     danger-plugin-todos: 1.3.1
