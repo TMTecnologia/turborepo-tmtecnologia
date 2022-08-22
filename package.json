@@ -4,7 +4,7 @@
   "private": true,
   "config": {
     "commitizen": {
-      "path": "commitizen-emoji"
+      "path": "node_modules/cz-git"
     },
     "commitizenEmoji": {
       "symbol": true
