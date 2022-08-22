@@ -4,6 +4,55 @@
 const https = require('https');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const fs = require('fs');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { TYPE_NAMES } = require('./helpers');
+
+/**
+ * Creates `gitmojis.json` for commitlint usage
+ *
+ * @param {Object} json - The json downloaded.
+ * @param {Object[]} json.gitmojis - The gitmoji.dev content array
+ * @param {string} json.gitmojis[].emoji - the pretty emoji representation
+ * @param {string} json.gitmojis[].code - the emoji name
+ * @param {string} json.gitmojis[].description - the meaning in gitmoji
+ */
+function createCommitlintTyping(json) {
+  const emojiArray = json.gitmojis.map((e) => e.emoji);
+  try {
+    fs.writeFileSync('gitmojis.json', JSON.stringify(emojiArray));
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error(error.message);
+  }
+}
+
+/**
+ * Creates `types.json` for commitzen usage
+ *
+ * @param {Object} json - The json downloaded.
+ * @param {Object[]} json.gitmojis - The gitmoji.dev content array
+ * @param {string} json.gitmojis[].emoji - the pretty emoji representation
+ * @param {string} json.gitmojis[].code - the emoji name
+ * @param {string} json.gitmojis[].description - the meaning in gitmoji
+ */
+function createCommitzenTyping(json) {
+  const commitTypes = json.gitmojis.map((e) => {
+    const value = TYPE_NAMES.has(e.code) ? TYPE_NAMES.get(e.code) : 'error';
+
+    return {
+      ...e,
+      name: `${value}:\t${e.emoji} ${e.description}`,
+      value,
+    };
+  });
+
+  try {
+    fs.writeFileSync('types.json', JSON.stringify(commitTypes));
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error(error.message);
+  }
+}
 
 const url =
   'https://raw.githubusercontent.com/carloscuesta/gitmoji/master/src/data/gitmojis.json';
@@ -17,14 +66,9 @@ https
     });
 
     res.on('end', () => {
-      try {
-        const json = JSON.parse(body);
-        const emojiArray = json.gitmojis.map((e) => e.emoji);
-        fs.writeFileSync('gitmojis.json', JSON.stringify(emojiArray));
-      } catch (error) {
-        // eslint-disable-next-line no-console
-        console.error(error.message);
-      }
+      const json = JSON.parse(body);
+      createCommitlintTyping(json);
+      createCommitzenTyping(json);
     });
   })
   .on('error', (error) => {
