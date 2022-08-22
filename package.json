@@ -20,7 +20,10 @@
       "NEXTAUTH",
       "superjson",
       "tailwindcss",
-      "typesafe"
+      "typesafe",
+      "gitmojis",
+      "commitlint",
+      "commitzen"
     ]
   },
   "devDependencies": {
