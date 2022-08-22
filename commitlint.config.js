@@ -15,6 +15,8 @@
  */
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const gitmojis = require('./gitmojis.json');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const types = require('./types.json');
 
 /** @type {import('cz-git').UserConfig} */
 module.exports = {
@@ -58,59 +60,7 @@ module.exports = {
       footer: 'List any ISSUES by this change. E.g.: #31, #34:\n',
       confirmCommit: 'Are you sure you want to proceed with the commit above?',
     },
-    types: [
-      {
-        value: 'feat',
-        name: 'feat:     ✨  A new feature',
-        emoji: ':sparkles:',
-      },
-      { value: 'fix', name: 'fix:      🐛  A bug fix', emoji: ':bug:' },
-      {
-        value: 'docs',
-        name: 'docs:     📝  Documentation only changes',
-        emoji: ':memo:',
-      },
-      {
-        value: 'style',
-        name: 'style:    💄  Changes that do not affect the meaning of the code',
-        emoji: ':lipstick:',
-      },
-      {
-        value: 'refactor',
-        name: 'refactor: ♻️   A code change that neither fixes a bug nor adds a feature',
-        emoji: ':recycle:',
-      },
-      {
-        value: 'perf',
-        name: 'perf:     ⚡️  A code change that improves performance',
-        emoji: ':zap:',
-      },
-      {
-        value: 'test',
-        name: 'test:     ✅  Adding missing tests or correcting existing tests',
-        emoji: ':white_check_mark:',
-      },
-      {
-        value: 'build',
-        name: 'build:    📦️   Changes that affect the build system or external dependencies',
-        emoji: ':package:',
-      },
-      {
-        value: 'ci',
-        name: 'ci:       🎡  Changes to our CI configuration files and scripts',
-        emoji: ':ferris_wheel:',
-      },
-      {
-        value: 'chore',
-        name: "chore:    🔨  Other changes that don't modify src or test files",
-        emoji: ':hammer:',
-      },
-      {
-        value: 'revert',
-        name: 'revert:   ⏪️  Reverts a previous commit',
-        emoji: ':rewind:',
-      },
-    ],
+    types,
     useEmoji: true,
     emojiAlign: 'center',
     themeColorCode: '',
